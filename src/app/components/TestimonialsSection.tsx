@@ -9,7 +9,7 @@ const testimonials = [
     role: "CEO, TechCorp Inc.",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
     rating: 5,
-    text: "PRISM transformed our entire digital presence. Within 6 months, we saw a 340% increase in qualified leads and our brand recognition skyrocketed. Their strategic approach and creative execution are unmatched.",
+    text: "Saad Hasan transformed our entire digital presence. Within 6 months, we saw a 340% increase in qualified leads and our brand recognition skyrocketed. Their strategic approach and creative execution are unmatched.",
     company: "TechCorp",
   },
   {
@@ -17,7 +17,7 @@ const testimonials = [
     role: "Founder, EcoBeauty",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e",
     rating: 5,
-    text: "Working with PRISM was a game-changer. They didn't just run campaigns—they built our brand from the ground up. The community they helped us create is incredibly engaged and loyal. Absolutely worth every penny.",
+    text: "Working with Saad Hasan was a game-changer. They didn't just run campaigns—they built our brand from the ground up. The community they helped us create is incredibly engaged and loyal. Absolutely worth every penny.",
     company: "EcoBeauty",
   },
   {
@@ -25,7 +25,7 @@ const testimonials = [
     role: "CMO, FinFlow",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
     rating: 5,
-    text: "The ROI speaks for itself. PRISM reduced our customer acquisition cost by 64% while scaling our user base by 680%. Their data-driven approach combined with creative excellence is a rare combination.",
+    text: "The ROI speaks for itself. Saad Hasan reduced our customer acquisition cost by 64% while scaling our user base by 680%. Their data-driven approach combined with creative excellence is a rare combination.",
     company: "FinFlow",
   },
   {
@@ -33,7 +33,7 @@ const testimonials = [
     role: "VP Marketing, GrowthLabs",
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
     rating: 5,
-    text: "PRISM is more than an agency—they're true partners. Their team became an extension of ours, always thinking ahead and bringing innovative solutions. The results exceeded all our expectations.",
+    text: "Saad Hasan is more than an agency—they're true partners. Their team became an extension of ours, always thinking ahead and bringing innovative solutions. The results exceeded all our expectations.",
     company: "GrowthLabs",
   },
   {
@@ -41,7 +41,7 @@ const testimonials = [
     role: "Director, Wellness Co.",
     image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f",
     rating: 5,
-    text: "From strategy to execution, PRISM delivered excellence at every stage. They took the time to understand our brand and created campaigns that truly resonated with our audience. Highly recommend!",
+    text: "From strategy to execution, Saad Hasan delivered excellence at every stage. They took the time to understand our brand and created campaigns that truly resonated with our audience. Highly recommend!",
     company: "Wellness Co.",
   },
 ];

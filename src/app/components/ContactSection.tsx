@@ -174,8 +174,8 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <h3 className="text-lg mb-2">Email Us</h3>
-                    <p className="text-white/60">hello@prismmarketing.com</p>
-                    <p className="text-white/60">support@prismmarketing.com</p>
+                    <p className="text-white/60">hello@saadhasan.com</p>
+                    <p className="text-white/60">support@saadhasan.com</p>
                   </div>
                 </div>
               </div>
@@ -371,10 +371,10 @@ export default function ContactSection() {
       >
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-2xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent">
-            PRISM
+            Saad Hasan
           </div>
           <div className="text-white/60 text-sm">
-            © 2026 PRISM Marketing. All rights reserved.
+            © 2026 Saad Hasan. All rights reserved.
           </div>
           <div className="flex gap-6 text-sm text-white/60">
             <a href="#" className="hover:text-white transition-colors">

@@ -92,7 +92,7 @@ export default function CaseStudyDetail() {
             <span>Back to Home</span>
           </Link>
           <div className="text-2xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent">
-            PRISM
+            Saad Hasan
           </div>
         </div>
       </div>

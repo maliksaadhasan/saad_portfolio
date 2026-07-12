@@ -49,7 +49,7 @@ export default function Navigation() {
           transition={{ delay: 0.2 }}
           className="text-2xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent"
         >
-          PRISM
+          Saad Hasan
         </motion.div>
 
         {/* Desktop Navigation */}
