@@ -16,8 +16,7 @@ export default function HeroSection() {
       <Hero3D />
 
       {/* Gradient Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black z-[1]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(168,85,247,0.1),transparent_50%)] z-[1]" />
+      <div className="absolute inset-0 bg-black/50 z-[1]" />
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">

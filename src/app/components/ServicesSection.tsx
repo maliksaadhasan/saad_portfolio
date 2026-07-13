@@ -73,7 +73,7 @@ export default function ServicesSection() {
       className="relative py-32 px-6 overflow-hidden"
     >
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-pink-950/10 to-black" />
+      <div className="absolute inset-0 bg-black" />
 
       <div className="relative max-w-7xl mx-auto">
         <motion.div
@@ -147,18 +147,6 @@ export default function ServicesSection() {
                   ))}
                 </ul>
 
-                {/* Hover Arrow */}
-                <div className="relative mt-6 flex items-center gap-2 text-sm text-white/40 group-hover:text-white/80 transition-colors">
-                  <span>Learn more</span>
-                  <motion.span
-                    animate={{
-                      x: hoveredIndex === index ? 4 : 0,
-                    }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    →
-                  </motion.span>
-                </div>
               </motion.div>
             );
           })}

@@ -76,7 +76,7 @@ export default function TechnologiesSection() {
       className="relative py-32 px-6 overflow-hidden"
     >
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-violet-950/10 to-black" />
+      <div className="absolute inset-0 bg-black" />
 
       <div className="relative max-w-7xl mx-auto">
         <motion.div

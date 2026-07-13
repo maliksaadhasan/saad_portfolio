@@ -17,8 +17,7 @@ export default function CTASection() {
   return (
     <section ref={ref} className="relative py-32 px-6 overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-fuchsia-950/20 to-black" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(217,70,239,0.15),transparent_50%)]" />
+      <div className="absolute inset-0 bg-black" />
 
       <div className="relative max-w-5xl mx-auto">
         <motion.div
@@ -27,10 +26,7 @@ export default function CTASection() {
           transition={{ duration: 0.8 }}
           className="relative p-16 bg-gradient-to-br from-fuchsia-500/10 via-purple-500/10 to-pink-500/10 backdrop-blur-xl border border-white/20 rounded-3xl overflow-hidden"
         >
-          {/* Animated Background Elements */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-fuchsia-500/20 rounded-full blur-[100px] animate-pulse" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/20 rounded-full blur-[100px] animate-pulse" 
-               style={{ animationDelay: "1s" }} />
+
 
           {/* Content */}
           <div className="relative text-center">

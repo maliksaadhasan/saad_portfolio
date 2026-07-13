@@ -17,7 +17,7 @@ const testimonials = [
     role: "Founder, EcoBeauty",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e",
     rating: 5,
-    text: "Working with Saad Hasan was a game-changer. They didn't just run campaigns—they built our brand from the ground up. The community they helped us create is incredibly engaged and loyal. Absolutely worth every penny.",
+    text: "Working with Saad Hasan was a game-changer. They didn't just run campaigns, they built our brand from the ground up. The community they helped us create is incredibly engaged and loyal. Absolutely worth every penny.",
     company: "EcoBeauty",
   },
   {
@@ -33,7 +33,7 @@ const testimonials = [
     role: "VP Marketing, GrowthLabs",
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
     rating: 5,
-    text: "Saad Hasan is more than an agency—they're true partners. Their team became an extension of ours, always thinking ahead and bringing innovative solutions. The results exceeded all our expectations.",
+    text: "Saad Hasan is more than an agency, they're true partners. Their team became an extension of ours, always thinking ahead and bringing innovative solutions. The results exceeded all our expectations.",
     company: "GrowthLabs",
   },
   {
@@ -70,9 +70,7 @@ export default function TestimonialsSection() {
       className="relative py-32 px-6 overflow-hidden"
     >
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-rose-950/10 to-black" />
-      <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-rose-500/10 rounded-full blur-[120px]" />
-      <div className="absolute bottom-1/3 left-1/4 w-[600px] h-[600px] bg-purple-500/10 rounded-full blur-[120px]" />
+      <div className="absolute inset-0 bg-black" />
 
       <div className="relative max-w-6xl mx-auto">
         <motion.div
@@ -91,7 +89,7 @@ export default function TestimonialsSection() {
             </span>
           </h2>
           <p className="text-xl text-white/70 max-w-3xl mx-auto">
-            Don't just take our word for it—hear from the brands we've helped
+            Don't just take our word for it, hear from the brands we've helped
             transform.
           </p>
         </motion.div>

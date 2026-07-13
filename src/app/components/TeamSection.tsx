@@ -64,7 +64,7 @@ const team = [
     role: "UX/UI Director",
     expertise: "Web Design & CRO",
     image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb",
-    bio: "Designs that don't just look good—they convert.",
+    bio: "Designs that don't just look good, they convert.",
     social: {
       linkedin: "#",
       twitter: "#",
@@ -84,8 +84,7 @@ export default function TeamSection() {
       className="relative py-32 px-6 overflow-hidden"
     >
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-cyan-950/10 to-black" />
-      <div className="absolute top-1/4 left-1/3 w-[700px] h-[700px] bg-cyan-500/10 rounded-full blur-[150px]" />
+      <div className="absolute inset-0 bg-black" />
 
       <div className="relative max-w-7xl mx-auto">
         <motion.div

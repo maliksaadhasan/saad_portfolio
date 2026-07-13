@@ -65,7 +65,7 @@ export default function CaseStudyDetail() {
 
   if (!caseStudy) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-black via-purple-950/20 to-black text-white flex items-center justify-center">
+      <div className="min-h-screen bg-black text-white flex items-center justify-center">
         <div className="text-center">
           <h1 className="mb-4">Case Study Not Found</h1>
           <Link
@@ -80,7 +80,7 @@ export default function CaseStudyDetail() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-purple-950/20 to-black text-white">
+    <div className="min-h-screen bg-black text-white">
       {/* Navigation */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">

@@ -15,13 +15,13 @@ const reasons = [
     icon: BarChart3,
     title: "Data-Driven Decisions",
     description:
-      "Every strategy is backed by deep analytics and market insights. We don't guess—we know what works.",
+      "Every strategy is backed by deep analytics and market insights. We don't guess, we know what works.",
   },
   {
     icon: Lightbulb,
     title: "Creative Excellence",
     description:
-      "Our award-winning creative team crafts campaigns that don't just perform—they inspire and captivate.",
+      "Our award-winning creative team crafts campaigns that don't just perform, they inspire and captivate.",
   },
   {
     icon: Cpu,
@@ -60,9 +60,7 @@ export default function WhyChooseUsSection() {
       className="relative py-32 px-6 overflow-hidden"
     >
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-950/10 to-black" />
-      <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-pink-500/10 rounded-full blur-[150px]" />
-      <div className="absolute bottom-1/4 left-0 w-[600px] h-[600px] bg-purple-500/10 rounded-full blur-[150px]" />
+      <div className="absolute inset-0 bg-black" />
 
       <div className="relative max-w-7xl mx-auto">
         <motion.div
@@ -82,7 +80,7 @@ export default function WhyChooseUsSection() {
             Advantage
           </h2>
           <p className="text-xl text-white/70 max-w-3xl mx-auto">
-            We're more than a service provider—we're your strategic partner in
+            We're more than a service provider, we're your strategic partner in
             building a brand that dominates.
           </p>
         </motion.div>

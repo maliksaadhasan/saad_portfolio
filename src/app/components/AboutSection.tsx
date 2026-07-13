@@ -49,9 +49,8 @@ export default function AboutSection() {
       ref={ref}
       className="relative py-32 px-6 overflow-hidden"
     >
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-950/10 to-black" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-500/10 rounded-full blur-[120px]" />
+      {/* Background */}
+      <div className="absolute inset-0 bg-black" />
 
       <div className="relative max-w-7xl mx-auto">
         <motion.div
@@ -82,13 +81,13 @@ export default function AboutSection() {
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="p-8 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl"
+            className="p-8 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl"
           >
             <h3 className="text-2xl mb-4 text-purple-400">Our Mission</h3>
             <p className="text-white/70 leading-relaxed">
               To empower businesses with marketing strategies that don't just
-              increase visibility—they drive exponential growth, build lasting
-              brand equity, and create market leaders.
+               increase visibility, they drive exponential growth, build lasting
+               brand equity, and create market leaders.
             </p>
           </motion.div>
 
@@ -96,13 +95,13 @@ export default function AboutSection() {
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="p-8 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl"
+            className="p-8 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl"
           >
             <h3 className="text-2xl mb-4 text-pink-400">Our Vision</h3>
             <p className="text-white/70 leading-relaxed">
               To be the world's most trusted partner for brands seeking
-              transformative growth—where innovation, creativity, and measurable
-              results converge to redefine what's possible.
+               transformative growth, where innovation, creativity, and measurable
+               results converge to redefine what's possible.
             </p>
           </motion.div>
         </div>
