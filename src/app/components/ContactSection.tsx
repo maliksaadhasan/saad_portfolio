@@ -1,12 +1,13 @@
 import { motion } from "motion/react";
 import { useInView } from "motion/react";
 import { useRef, useState } from "react";
-import { Mail, Phone, MapPin, Send, Linkedin, Twitter, Instagram } from "lucide-react";
+import { Mail, Send, Linkedin, MessageCircle, CalendarCheck, CheckCircle2, Loader2 } from "lucide-react";
+import { Link } from "react-router";
+import { LINKS } from "@/app/data/site";
 
 function AnimatedGlobe() {
   return (
     <div className="relative w-full h-full flex items-center justify-center">
-      {/* Animated gradient orb */}
       <motion.div
         className="absolute w-48 h-48 rounded-full"
         style={{
@@ -22,8 +23,7 @@ function AnimatedGlobe() {
           ease: "easeInOut",
         }}
       />
-      
-      {/* Rotating rings */}
+
       <motion.div
         className="absolute w-64 h-64 border-2 border-indigo-500/30 rounded-full"
         animate={{
@@ -35,7 +35,7 @@ function AnimatedGlobe() {
           ease: "linear",
         }}
       />
-      
+
       <motion.div
         className="absolute w-56 h-56 border-2 border-purple-500/20 rounded-full"
         animate={{
@@ -47,8 +47,7 @@ function AnimatedGlobe() {
           ease: "linear",
         }}
       />
-      
-      {/* Center sphere */}
+
       <motion.div
         className="w-32 h-32 rounded-full bg-gradient-to-br from-indigo-500/40 to-purple-500/40 backdrop-blur-sm"
         animate={{
@@ -60,8 +59,7 @@ function AnimatedGlobe() {
           ease: "easeInOut",
         }}
       />
-      
-      {/* Floating particles */}
+
       {[...Array(12)].map((_, i) => (
         <motion.div
           key={i}
@@ -86,9 +84,12 @@ function AnimatedGlobe() {
   );
 }
 
+type FormStatus = "idle" | "sending" | "success" | "error";
+
 export default function ContactSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const [status, setStatus] = useState<FormStatus>("idle");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -98,19 +99,35 @@ export default function ContactSection() {
     budget: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
-    alert("Thank you! We'll be in touch soon.");
-    setFormData({
-      name: "",
-      email: "",
-      company: "",
-      phone: "",
-      message: "",
-      budget: "",
-    });
+    setStatus("sending");
+    try {
+      const res = await fetch(`https://formsubmit.co/ajax/${LINKS.email}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          _subject: `New portfolio inquiry from ${formData.name}`,
+          _template: "table",
+          ...formData,
+        }),
+      });
+      if (!res.ok) throw new Error("Request failed");
+      setStatus("success");
+      setFormData({
+        name: "",
+        email: "",
+        company: "",
+        phone: "",
+        message: "",
+        budget: "",
+      });
+    } catch {
+      setStatus("error");
+    }
   };
 
   const handleChange = (
@@ -128,7 +145,6 @@ export default function ContactSection() {
       ref={ref}
       className="relative py-32 px-6 overflow-hidden"
     >
-      {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-indigo-950/10 to-black" />
 
       <div className="relative max-w-7xl mx-auto">
@@ -142,98 +158,108 @@ export default function ContactSection() {
             Get In Touch
           </div>
           <h2 className="text-4xl md:text-6xl mb-6">
-            Let's Create Something{" "}
+            Let's Scale Something{" "}
             <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-              Extraordinary
+              Profitable
             </span>
           </h2>
           <p className="text-xl text-white/70 max-w-3xl mx-auto">
-            Ready to take your brand to the next level? We'd love to hear from
-            you. Let's start a conversation.
+            Ready to grow? Send a message, book a call, or reach out directly
+            on WhatsApp — I respond fast.
           </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Left Side - Contact Info & 3D */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            {/* 3D Globe */}
             <div className="h-64 mb-8 rounded-2xl overflow-hidden bg-gradient-to-br from-indigo-500/10 to-purple-500/10 border border-white/10">
               <AnimatedGlobe />
             </div>
 
-            {/* Contact Details */}
             <div className="space-y-6">
-              <div className="p-6 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl">
+              <a
+                href={`mailto:${LINKS.email}`}
+                className="block p-6 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl hover:border-white/20 transition-all duration-300"
+              >
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
                     <Mail className="w-6 h-6 text-indigo-400" />
                   </div>
                   <div>
-                    <h3 className="text-lg mb-2">Email Us</h3>
-                    <p className="text-white/60">hello@saadhasan.com</p>
-                    <p className="text-white/60">support@saadhasan.com</p>
+                    <h3 className="text-lg mb-2">Email Me</h3>
+                    <p className="text-white/60">{LINKS.email}</p>
                   </div>
                 </div>
-              </div>
+              </a>
 
-              <div className="p-6 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl">
+              <a
+                href={LINKS.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block p-6 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl hover:border-green-500/30 transition-all duration-300"
+              >
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6 text-indigo-400" />
+                  <div className="w-12 h-12 bg-gradient-to-br from-green-500/20 to-teal-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <MessageCircle className="w-6 h-6 text-green-400" />
                   </div>
                   <div>
-                    <h3 className="text-lg mb-2">Call Us</h3>
-                    <p className="text-white/60">+1 (555) 123-4567</p>
-                    <p className="text-white/60">Mon-Fri, 9am-6pm EST</p>
+                    <h3 className="text-lg mb-2">WhatsApp</h3>
+                    <p className="text-white/60">{LINKS.whatsappNumber}</p>
+                    <p className="text-white/40 text-sm">Fastest way to reach me</p>
                   </div>
                 </div>
-              </div>
+              </a>
 
-              <div className="p-6 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl">
+              <a
+                href={LINKS.calendar}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block p-6 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl hover:border-purple-500/30 transition-all duration-300"
+              >
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-indigo-400" />
+                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <CalendarCheck className="w-6 h-6 text-purple-400" />
                   </div>
                   <div>
-                    <h3 className="text-lg mb-2">Visit Us</h3>
-                    <p className="text-white/60">123 Innovation Street</p>
-                    <p className="text-white/60">San Francisco, CA 94105</p>
+                    <h3 className="text-lg mb-2">Book a 1:1 Audit & Strategy Call</h3>
+                    <p className="text-white/60">Free — competitor analysis included</p>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
 
-            {/* Social Links */}
             <div className="mt-8 flex gap-4">
               <a
-                href="#"
+                href={LINKS.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-12 h-12 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href={`mailto:${LINKS.email}`}
                 className="w-12 h-12 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300"
-                aria-label="Twitter"
+                aria-label="Email"
               >
-                <Twitter className="w-5 h-5" />
+                <Mail className="w-5 h-5" />
               </a>
               <a
-                href="#"
-                className="w-12 h-12 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300"
-                aria-label="Instagram"
+                href={LINKS.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full flex items-center justify-center hover:bg-white/10 hover:border-green-500/30 transition-all duration-300"
+                aria-label="WhatsApp"
               >
-                <Instagram className="w-5 h-5" />
+                <MessageCircle className="w-5 h-5" />
               </a>
             </div>
           </motion.div>
 
-          {/* Right Side - Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -277,7 +303,7 @@ export default function ContactSection() {
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm mb-2 text-white/80">
-                    Company Name
+                    Company / Brand
                   </label>
                   <input
                     type="text"
@@ -290,7 +316,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <label className="block text-sm mb-2 text-white/80">
-                    Phone Number
+                    Phone / WhatsApp
                   </label>
                   <input
                     type="tel"
@@ -305,7 +331,7 @@ export default function ContactSection() {
 
               <div>
                 <label className="block text-sm mb-2 text-white/80">
-                  Budget Range
+                  Monthly Ad Budget
                 </label>
                 <select
                   name="budget"
@@ -314,26 +340,26 @@ export default function ContactSection() {
                   className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white focus:border-indigo-500/50 focus:outline-none transition-colors"
                 >
                   <option value="" className="bg-gray-900">
-                    Select your budget
+                    Select your monthly ad budget
                   </option>
-                  <option value="<10k" className="bg-gray-900">
-                    Less than $10,000
+                  <option value="<3k" className="bg-gray-900">
+                    Less than $3,000
+                  </option>
+                  <option value="3k-10k" className="bg-gray-900">
+                    $3,000 - $10,000
                   </option>
                   <option value="10k-50k" className="bg-gray-900">
                     $10,000 - $50,000
                   </option>
-                  <option value="50k-100k" className="bg-gray-900">
-                    $50,000 - $100,000
-                  </option>
-                  <option value=">100k" className="bg-gray-900">
-                    More than $100,000
+                  <option value=">50k" className="bg-gray-900">
+                    More than $50,000
                   </option>
                 </select>
               </div>
 
               <div>
                 <label className="block text-sm mb-2 text-white/80">
-                  Tell Us About Your Project *
+                  Tell Me About Your Brand *
                 </label>
                 <textarea
                   name="message"
@@ -342,27 +368,83 @@ export default function ContactSection() {
                   required
                   rows={5}
                   className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/40 focus:border-indigo-500/50 focus:outline-none transition-colors resize-none"
-                  placeholder="What are your goals? What challenges are you facing?"
+                  placeholder="What do you sell? What are your goals? What's not working right now?"
                 />
               </div>
 
               <button
                 type="submit"
-                className="group w-full px-8 py-4 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-xl text-white hover:shadow-2xl hover:shadow-indigo-500/50 transition-all duration-300 flex items-center justify-center gap-2"
+                disabled={status === "sending" || status === "success"}
+                className="group w-full px-8 py-4 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-xl text-white hover:shadow-2xl hover:shadow-indigo-500/50 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70"
               >
-                <span>Send Message</span>
-                <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                {status === "sending" ? (
+                  <>
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                    <span>Sending...</span>
+                  </>
+                ) : status === "success" ? (
+                  <>
+                    <CheckCircle2 className="w-5 h-5" />
+                    <span>Message Sent!</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Send Message</span>
+                    <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </>
+                )}
               </button>
 
-              <p className="text-sm text-white/50 text-center">
-                We'll respond within 24 hours
-              </p>
+              {status === "success" && (
+                <p className="text-sm text-green-400 text-center">
+                  Thanks! Your message is on its way — I'll get back to you
+                  within 24 hours.
+                </p>
+              )}
+              {status === "error" && (
+                <p className="text-sm text-red-400 text-center">
+                  Something went wrong. Please email me directly at{" "}
+                  {LINKS.email} or reach out on WhatsApp.
+                </p>
+              )}
+              {status === "idle" && (
+                <p className="text-sm text-white/50 text-center">
+                  I'll respond within 24 hours
+                </p>
+              )}
             </form>
+
+            <div className="mt-6 grid grid-cols-3 gap-4">
+              <a
+                href={LINKS.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 px-4 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl text-white/80 hover:text-white hover:border-blue-500/40 transition-all duration-300 text-sm"
+              >
+                <Linkedin className="w-4 h-4 text-blue-400" />
+                <span className="hidden sm:inline">LinkedIn</span>
+              </a>
+              <a
+                href={`mailto:${LINKS.email}`}
+                className="flex items-center justify-center gap-2 px-4 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl text-white/80 hover:text-white hover:border-indigo-500/40 transition-all duration-300 text-sm"
+              >
+                <Mail className="w-4 h-4 text-indigo-400" />
+                <span className="hidden sm:inline">Email</span>
+              </a>
+              <a
+                href={LINKS.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 px-4 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl text-white/80 hover:text-white hover:border-green-500/40 transition-all duration-300 text-sm"
+              >
+                <MessageCircle className="w-4 h-4 text-green-400" />
+                <span className="hidden sm:inline">WhatsApp</span>
+              </a>
+            </div>
           </motion.div>
         </div>
       </div>
 
-      {/* Footer */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -377,12 +459,15 @@ export default function ContactSection() {
             © 2026 Saad Hasan. All rights reserved.
           </div>
           <div className="flex gap-6 text-sm text-white/60">
-            <a href="#" className="hover:text-white transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
-              Terms of Service
-            </a>
+            <Link to="/case-studies" className="hover:text-white transition-colors">
+              Case Studies
+            </Link>
+            <Link to="/gallery" className="hover:text-white transition-colors">
+              Work Gallery
+            </Link>
+            <Link to="/blog" className="hover:text-white transition-colors">
+              Blog
+            </Link>
           </div>
         </div>
       </motion.div>
