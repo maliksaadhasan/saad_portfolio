@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,20 +18,27 @@ export default function Navigation() {
   }, []);
 
   const scrollToSection = (id: string) => {
+    setIsMobileMenuOpen(false);
+    if (location.pathname !== "/") {
+      navigate("/", { state: { scrollTo: id } });
+      return;
+    }
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
-      setIsMobileMenuOpen(false);
     }
   };
 
-  const navItems = [
+  const sectionItems = [
     { label: "About", id: "about" },
     { label: "Services", id: "services" },
     { label: "Work", id: "case-studies" },
     { label: "Process", id: "process" },
-    { label: "Team", id: "team" },
-    { label: "Contact", id: "contact" },
+  ];
+
+  const pageItems = [
+    { label: "Work Gallery", to: "/gallery" },
+    { label: "Blog", to: "/blog" },
   ];
 
   return (
@@ -42,19 +52,21 @@ export default function Navigation() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        {/* Logo */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="text-2xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent"
         >
-          Saad Hasan
+          <Link
+            to="/"
+            className="text-2xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent"
+          >
+            Saad Hasan
+          </Link>
         </motion.div>
 
-        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
-          {navItems.map((item, index) => (
+          {sectionItems.map((item, index) => (
             <motion.button
               key={item.id}
               initial={{ opacity: 0, y: -20 }}
@@ -67,6 +79,22 @@ export default function Navigation() {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-500 group-hover:w-full transition-all duration-300" />
             </motion.button>
           ))}
+          {pageItems.map((item, index) => (
+            <motion.div
+              key={item.to}
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 * (sectionItems.length + index) }}
+            >
+              <Link
+                to={item.to}
+                className="text-white/80 hover:text-white transition-colors relative group"
+              >
+                {item.label}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-500 group-hover:w-full transition-all duration-300" />
+              </Link>
+            </motion.div>
+          ))}
           <motion.button
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -78,7 +106,6 @@ export default function Navigation() {
           </motion.button>
         </div>
 
-        {/* Mobile Menu Button */}
         <button
           className="md:hidden text-white"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -87,7 +114,6 @@ export default function Navigation() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -95,7 +121,7 @@ export default function Navigation() {
           className="md:hidden bg-black/95 backdrop-blur-xl border-t border-white/10"
         >
           <div className="px-6 py-4 flex flex-col gap-4">
-            {navItems.map((item) => (
+            {sectionItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
@@ -103,6 +129,16 @@ export default function Navigation() {
               >
                 {item.label}
               </button>
+            ))}
+            {pageItems.map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-white/80 hover:text-white transition-colors text-left"
+              >
+                {item.label}
+              </Link>
             ))}
             <button
               onClick={() => scrollToSection("contact")}

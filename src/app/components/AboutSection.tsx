@@ -16,7 +16,7 @@ function AnimatedCounter({ end, duration = 2 }: { end: number; duration?: number
     const animate = (currentTime: number) => {
       if (!startTime) startTime = currentTime;
       const progress = Math.min((currentTime - startTime) / (duration * 1000), 1);
-      
+
       setCount(Math.floor(progress * end));
 
       if (progress < 1) {
@@ -37,10 +37,10 @@ export default function AboutSection() {
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   const stats = [
-    { value: 8, suffix: "+", label: "Years of Excellence" },
-    { value: 200, suffix: "+", label: "Brands Transformed" },
-    { value: 450, suffix: "%", label: "Average ROI Achieved" },
-    { value: 50, suffix: "M+", label: "Revenue Generated", prefix: "$" },
+    { value: 4, suffix: "+", label: "Years of Experience" },
+    { value: 15, suffix: "M+", label: "Revenue Generated", prefix: "$" },
+    { value: 15, suffix: "+", label: "Industries Served" },
+    { value: 9, suffix: "x", label: "Best Yearly ROAS" },
   ];
 
   return (
@@ -60,22 +60,23 @@ export default function AboutSection() {
           className="text-center mb-20"
         >
           <div className="inline-block px-4 py-2 bg-purple-500/20 border border-purple-500/30 rounded-full text-purple-300 mb-6">
-            About Us
+            About Me
           </div>
           <h2 className="text-4xl md:text-6xl mb-6">
-            Where Strategy Meets{" "}
+            Where Data Meets{" "}
             <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
               Creativity
             </span>
           </h2>
           <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-            We're not just another marketing agency. We're growth architects who
-            combine data science, creative storytelling, and cutting-edge
-            technology to build brands that dominate their markets.
+            I'm Saad Hasan, a performance marketer with 4+ years of running
+            data-backed Meta and Google Ads campaigns. I handle everything
+            from pixel integration and tracking to creative testing,
+            optimization, and scaling, helping brands grow with strategy,
+            storytelling, and measurable performance.
           </p>
         </motion.div>
 
-        {/* Mission & Vision */}
         <div className="grid md:grid-cols-2 gap-8 mb-20">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -83,11 +84,13 @@ export default function AboutSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="p-8 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl"
           >
-            <h3 className="text-2xl mb-4 text-purple-400">Our Mission</h3>
+            <h3 className="text-2xl mb-4 text-purple-400">What I Do</h3>
             <p className="text-white/70 leading-relaxed">
-              To empower businesses with marketing strategies that don't just
-               increase visibility, they drive exponential growth, build lasting
-               brand equity, and create market leaders.
+              Full-funnel Meta and Google Ads management, performance
+              marketing and PPC, Klaviyo email marketing and flows, social
+              media management, content strategy, and brand strategy. I also
+              serve as Content Strategist for JunziDev, shaping content that
+              converts.
             </p>
           </motion.div>
 
@@ -97,16 +100,17 @@ export default function AboutSection() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="p-8 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl"
           >
-            <h3 className="text-2xl mb-4 text-pink-400">Our Vision</h3>
+            <h3 className="text-2xl mb-4 text-pink-400">How I Work</h3>
             <p className="text-white/70 leading-relaxed">
-              To be the world's most trusted partner for brands seeking
-               transformative growth, where innovation, creativity, and measurable
-               results converge to redefine what's possible.
+              Every account starts with accurate tracking, pixel and
+              Conversions API done right. Then competitor analysis, structured
+              creative testing, and disciplined scaling. No guesswork: every
+              decision is backed by data, and every dollar is accountable to
+              ROAS, CPA, and revenue.
             </p>
           </motion.div>
         </div>
 
-        {/* Animated Stats */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -118,7 +122,7 @@ export default function AboutSection() {
               key={index}
               className="p-8 bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-xl border border-white/10 rounded-2xl text-center group hover:scale-105 transition-transform duration-300"
             >
-              <div className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <div className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent flex items-center justify-center">
                 {stat.prefix}
                 <AnimatedCounter end={stat.value} />
                 {stat.suffix}

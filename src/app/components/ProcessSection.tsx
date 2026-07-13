@@ -13,40 +13,40 @@ const steps = [
   {
     number: "01",
     icon: Search,
-    title: "Research & Discovery",
+    title: "Audit & Competitor Analysis",
     description:
-      "Deep dive into your market, competitors, and target audience. We uncover insights that drive strategy.",
+      "Deep dive into your ad account, market, and competitors. I find where money is leaking and where your rivals are vulnerable.",
     details: [
-      "Market Analysis",
-      "Competitor Research",
+      "Ad Account Audit",
+      "Competitor Analysis",
       "Audience Profiling",
-      "Brand Audit",
+      "Offer & Funnel Review",
     ],
   },
   {
     number: "02",
     icon: Lightbulb,
-    title: "Strategy Development",
+    title: "Tracking & Setup",
     description:
-      "Craft a comprehensive marketing strategy tailored to your unique goals and market position.",
+      "Accurate data before a single dollar is spent — pixel integration, Conversions API, and event testing done right.",
     details: [
-      "Goal Setting",
-      "Channel Strategy",
-      "Content Planning",
-      "Budget Allocation",
+      "Pixel Integration",
+      "Conversions API (CAPI)",
+      "Event & Catalog Setup",
+      "Analytics Configuration",
     ],
   },
   {
     number: "03",
     icon: Rocket,
-    title: "Creative Execution",
+    title: "Launch & Creative Testing",
     description:
-      "Bring the strategy to life with compelling campaigns, stunning creative, and flawless execution.",
+      "Structured campaigns go live with systematic creative testing — hooks, angles, and formats compete until winners emerge.",
     details: [
-      "Campaign Launch",
-      "Content Production",
-      "Design & Development",
-      "Multi-Channel Deployment",
+      "Campaign Structure",
+      "Creative & Angle Testing",
+      "Audience Testing",
+      "Landing Page Alignment",
     ],
   },
   {
@@ -54,7 +54,7 @@ const steps = [
     icon: TrendingUp,
     title: "Optimization",
     description:
-      "Continuously test, measure, and refine every element to maximize performance and ROI.",
+      "Continuous testing, measuring, and refining to push ROAS, CPA, and CTR in the right direction every week.",
     details: [
       "A/B Testing",
       "Performance Analysis",
@@ -65,14 +65,14 @@ const steps = [
   {
     number: "05",
     icon: BarChart2,
-    title: "Scale & Growth",
+    title: "Scaling & Retention",
     description:
-      "Amplify what works, double down on winners, and scale your success exponentially.",
+      "Double down on winners with controlled budget scaling, and lock in revenue with Klaviyo email flows and retargeting.",
     details: [
-      "Growth Strategies",
-      "Market Expansion",
-      "Team Training",
-      "Long-term Planning",
+      "Controlled Budget Scaling",
+      "Retargeting Systems",
+      "Klaviyo Email Flows",
+      "Monthly Reporting",
     ],
   },
 ];
@@ -98,24 +98,21 @@ export default function ProcessSection() {
           className="text-center mb-20"
         >
           <div className="inline-block px-4 py-2 bg-indigo-500/20 border border-indigo-500/30 rounded-full text-indigo-300 mb-6">
-            Our Process
+            My Process
           </div>
           <h2 className="text-4xl md:text-6xl mb-6">
-            How We{" "}
+            From Pixel to{" "}
             <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-              Transform
-            </span>{" "}
-            Brands
+              Profitable Scale
+            </span>
           </h2>
           <p className="text-xl text-white/70 max-w-3xl mx-auto">
-            A proven methodology that turns ambitious goals into measurable
-            results, step by strategic step.
+            The exact methodology behind every account I manage — accurate
+            tracking first, disciplined scaling last.
           </p>
         </motion.div>
 
-        {/* Timeline */}
         <div className="relative">
-          {/* Vertical Line */}
           <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-indigo-500/50 via-purple-500/50 to-pink-500/50 hidden lg:block" />
 
           <div className="space-y-16">
@@ -133,14 +130,12 @@ export default function ProcessSection() {
                     isEven ? "" : "lg:text-right"
                   }`}
                 >
-                  {/* Content */}
                   <div
                     className={`${
                       isEven ? "lg:order-1" : "lg:order-2"
                     } relative`}
                   >
                     <div className="p-8 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl hover:border-white/20 transition-all duration-300 group">
-                      {/* Number Badge */}
                       <div
                         className={`inline-block px-4 py-2 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 border border-indigo-500/30 rounded-full text-indigo-300 mb-4`}
                       >
@@ -152,7 +147,6 @@ export default function ProcessSection() {
                         {step.description}
                       </p>
 
-                      {/* Details */}
                       <ul
                         className={`space-y-2 ${
                           isEven ? "lg:text-left" : "lg:text-right"
@@ -175,7 +169,6 @@ export default function ProcessSection() {
                     </div>
                   </div>
 
-                  {/* Icon Circle */}
                   <div
                     className={`${
                       isEven ? "lg:order-2" : "lg:order-1"
@@ -185,7 +178,6 @@ export default function ProcessSection() {
                       <div className="w-20 h-20 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-full flex items-center justify-center shadow-lg shadow-indigo-500/50">
                         <Icon className="w-10 h-10 text-white" />
                       </div>
-                      {/* Glow */}
                       <div className="absolute inset-0 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-full blur-xl opacity-50" />
                     </div>
                   </div>

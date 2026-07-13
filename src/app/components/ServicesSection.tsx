@@ -6,58 +6,58 @@ import {
   TrendingUp,
   MessageCircle,
   Palette,
-  Search,
-  Sparkles,
+  Mail,
+  Gauge,
 } from "lucide-react";
 
 const services = [
   {
-    icon: Target,
-    title: "Brand Strategy",
-    description:
-      "Build a powerful brand identity that resonates with your audience and stands out in the market.",
-    features: ["Brand Positioning", "Market Research", "Competitor Analysis"],
-    gradient: "from-purple-500 to-purple-700",
-  },
-  {
     icon: TrendingUp,
     title: "Digital Advertising",
     description:
-      "Performance-driven campaigns across Google Ads, Meta, LinkedIn, and more that maximize ROI.",
-    features: ["PPC Management", "Retargeting", "Campaign Optimization"],
+      "Full-funnel Meta and Google Ads campaigns built for one thing: profitable, measurable revenue.",
+    features: ["Meta Ads", "Google Ads", "PPC & Retargeting"],
     gradient: "from-pink-500 to-pink-700",
+  },
+  {
+    icon: Gauge,
+    title: "Performance Marketing",
+    description:
+      "From pixel integration to optimization and scaling — accurate tracking, disciplined testing, and ROAS-driven growth.",
+    features: ["Pixel & CAPI Integration", "Conversion Tracking", "Optimization & Scaling"],
+    gradient: "from-purple-500 to-purple-700",
+  },
+  {
+    icon: Mail,
+    title: "Email Marketing (Klaviyo)",
+    description:
+      "Klaviyo campaigns and automated flows that turn one-time buyers into repeat customers and lift LTV.",
+    features: ["Email Flows & Automation", "Campaigns", "Retention & LTV"],
+    gradient: "from-green-500 to-green-700",
   },
   {
     icon: MessageCircle,
     title: "Social Media Marketing",
     description:
-      "Build engaged communities and drive conversions through strategic social media presence.",
-    features: ["Content Strategy", "Community Management", "Influencer Partnerships"],
+      "Strategic social media management that builds engaged communities and keeps your brand present where buyers are.",
+    features: ["Social Media Management", "Community Engagement", "Organic Growth"],
     gradient: "from-red-500 to-red-700",
   },
   {
-    icon: Palette,
-    title: "Content Creation",
+    icon: Target,
+    title: "Brand Strategy",
     description:
-      "Compelling content that tells your story, engages your audience, and drives action.",
-    features: ["Video Production", "Copywriting", "Graphic Design"],
-    gradient: "from-orange-500 to-orange-700",
-  },
-  {
-    icon: Search,
-    title: "SEO & Growth Marketing",
-    description:
-      "Dominate search results and build sustainable organic growth with data-driven SEO.",
-    features: ["Technical SEO", "Content Marketing", "Link Building"],
+      "Positioning grounded in market research and competitor analysis, so your brand stands out and your ads convert.",
+    features: ["Brand Positioning", "Market Research", "Competitor Analysis"],
     gradient: "from-yellow-500 to-yellow-700",
   },
   {
-    icon: Sparkles,
-    title: "UI/UX & Web Design",
+    icon: Palette,
+    title: "Content Creation & Strategy",
     description:
-      "Beautiful, conversion-optimized websites that turn visitors into customers.",
-    features: ["Web Design", "UX Research", "CRO Optimization"],
-    gradient: "from-green-500 to-green-700",
+      "Content that sells — ad creatives, copy, and content strategy. Currently Content Strategist for JunziDev.",
+    features: ["Content Strategy", "Ad Creatives", "Copywriting"],
+    gradient: "from-orange-500 to-orange-700",
   },
 ];
 
@@ -83,17 +83,17 @@ export default function ServicesSection() {
           className="text-center mb-20"
         >
           <div className="inline-block px-4 py-2 bg-pink-500/20 border border-pink-500/30 rounded-full text-pink-300 mb-6">
-            Our Services
+            My Services
           </div>
           <h2 className="text-4xl md:text-6xl mb-6">
             Everything You Need to{" "}
             <span className="bg-gradient-to-r from-pink-400 to-red-400 bg-clip-text text-transparent">
-              Dominate
+              Scale
             </span>
           </h2>
           <p className="text-xl text-white/70 max-w-3xl mx-auto">
-            From strategy to execution, we provide end-to-end marketing solutions
-            that drive real business results.
+            From pixel integration to optimization and scaling — end-to-end
+            performance marketing that drives real revenue.
           </p>
         </motion.div>
 
@@ -116,25 +116,21 @@ export default function ServicesSection() {
                       : "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)",
                 }}
               >
-                {/* Gradient Background on Hover */}
                 <div
                   className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300`}
                 />
 
-                {/* Icon */}
                 <div
                   className={`relative w-14 h-14 mb-6 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center`}
                 >
                   <Icon className="w-7 h-7 text-white" />
                 </div>
 
-                {/* Content */}
                 <h3 className="relative text-2xl mb-4">{service.title}</h3>
                 <p className="relative text-white/70 mb-6 leading-relaxed">
                   {service.description}
                 </p>
 
-                {/* Features */}
                 <ul className="relative space-y-2">
                   {service.features.map((feature, featureIndex) => (
                     <li
@@ -146,6 +142,7 @@ export default function ServicesSection() {
                     </li>
                   ))}
                 </ul>
+
 
               </motion.div>
             );
