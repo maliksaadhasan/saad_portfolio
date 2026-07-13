@@ -21,7 +21,7 @@ export default function CaseStudies() {
       : caseStudies.filter((cs) => cs.platform === selectedPlatform);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-purple-950/20 to-black text-white">
+    <div className="min-h-screen bg-black text-white">
       {/* Navigation */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -57,7 +57,7 @@ export default function CaseStudies() {
               </span>
             </h1>
             <p className="text-xl text-white/70 max-w-3xl mx-auto mb-10">
-              E-commerce scaling on Meta, lead generation on Google — the
+              E-commerce scaling on Meta, lead generation on Google, the
               problem each brand faced, the steps I took, and the outcome.
             </p>
 
@@ -97,7 +97,7 @@ export default function CaseStudies() {
                     {study.image ? (
                       <img
                         src={study.image}
-                        alt={`${study.client} — ad results`}
+                        alt={`${study.client}, ad results`}
                         className="w-full h-full object-cover object-left-top group-hover:scale-110 transition-transform duration-500"
                       />
                     ) : (
@@ -148,7 +148,7 @@ export default function CaseStudies() {
               Your brand could be the next story here.
             </h2>
             <p className="text-white/70 mb-8 max-w-2xl mx-auto">
-              Free 1:1 audit and strategy call — including a competitor
+              Free 1:1 audit and strategy call, including a competitor
               analysis of your market.
             </p>
             <a

@@ -16,7 +16,7 @@ export default function BlogPost() {
 
   if (!post) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-black via-purple-950/20 to-black text-white flex items-center justify-center">
+      <div className="min-h-screen bg-black text-white flex items-center justify-center">
         <div className="text-center">
           <h1 className="mb-4">Post Not Found</h1>
           <Link to="/blog" className="text-purple-400 hover:text-purple-300 transition-colors">
@@ -30,7 +30,7 @@ export default function BlogPost() {
   const others = blogPosts.filter((p) => p.slug !== slug).slice(0, 3);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-purple-950/20 to-black text-white">
+    <div className="min-h-screen bg-black text-white">
       {/* Navigation */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -101,7 +101,7 @@ export default function BlogPost() {
               Want this applied to your ad account?
             </h2>
             <p className="text-white/70 mb-8">
-              Free 1:1 audit and strategy call — competitor analysis included.
+              Free 1:1 audit and strategy call, competitor analysis included.
             </p>
             <a
               href={LINKS.calendar}

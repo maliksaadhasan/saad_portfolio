@@ -100,7 +100,7 @@ export default function CaseStudyDetail() {
             >
               <img
                 src={caseStudy.image}
-                alt={`${caseStudy.client} — real ad account results`}
+                alt={`${caseStudy.client}, real ad account results`}
                 className="w-full"
               />
               <div className="p-4 bg-white/5 text-sm text-white/50 text-center">
@@ -177,7 +177,7 @@ export default function CaseStudyDetail() {
               Want results like this for your brand?
             </h2>
             <p className="text-white/70 mb-8 max-w-2xl mx-auto">
-              Book a free 1:1 audit and strategy call — I'll review your ad
+              Book a free 1:1 audit and strategy call, I'll review your ad
               account, analyze your competitors, and show you exactly where
               the growth is.
             </p>

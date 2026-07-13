@@ -26,7 +26,7 @@ export default function Home() {
   }, [location.state]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-purple-950/20 to-black text-white">
+    <div className="min-h-screen bg-black text-white">
       <Navigation />
       <HeroSection />
       <AboutSection />

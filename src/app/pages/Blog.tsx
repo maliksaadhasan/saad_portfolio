@@ -11,7 +11,7 @@ export default function Blog() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-purple-950/20 to-black text-white">
+    <div className="min-h-screen bg-black text-white">
       {/* Navigation */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -47,7 +47,7 @@ export default function Blog() {
               </span>
             </h1>
             <p className="text-xl text-white/70 max-w-3xl mx-auto">
-              Playbooks, frameworks, and lessons from real campaigns — Meta
+              Playbooks, frameworks, and lessons from real campaigns, Meta
               Ads, Google Ads, Klaviyo, and performance marketing strategy.
             </p>
           </motion.div>
