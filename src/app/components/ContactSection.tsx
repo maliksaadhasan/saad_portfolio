@@ -9,7 +9,7 @@ function AnimatedGlobe() {
   return (
     <div className="relative w-full h-full flex items-center justify-center">
       <motion.div
-        className="absolute w-48 h-48 rounded-full"
+        className="absolute w-40 h-40 sm:w-48 sm:h-48 rounded-full"
         style={{
           background: "radial-gradient(circle, rgba(99, 102, 241, 0.4) 0%, rgba(99, 102, 241, 0) 70%)",
         }}
@@ -25,7 +25,7 @@ function AnimatedGlobe() {
       />
 
       <motion.div
-        className="absolute w-64 h-64 border-2 border-indigo-500/30 rounded-full"
+        className="absolute w-52 h-52 sm:w-64 sm:h-64 border-2 border-indigo-500/30 rounded-full"
         animate={{
           rotate: [0, 360],
         }}
@@ -37,7 +37,7 @@ function AnimatedGlobe() {
       />
 
       <motion.div
-        className="absolute w-56 h-56 border-2 border-purple-500/20 rounded-full"
+        className="absolute w-44 h-44 sm:w-56 sm:h-56 border-2 border-purple-500/20 rounded-full"
         animate={{
           rotate: [360, 0],
         }}
@@ -49,7 +49,7 @@ function AnimatedGlobe() {
       />
 
       <motion.div
-        className="w-32 h-32 rounded-full bg-gradient-to-br from-indigo-500/40 to-purple-500/40 backdrop-blur-sm"
+        className="w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-gradient-to-br from-indigo-500/40 to-purple-500/40 backdrop-blur-sm"
         animate={{
           scale: [1, 1.1, 1],
         }}
@@ -143,7 +143,7 @@ export default function ContactSection() {
     <section
       id="contact"
       ref={ref}
-      className="relative py-32 px-6 overflow-hidden"
+      className="relative py-20 px-4 sm:py-32 sm:px-6 overflow-hidden"
     >
       {/* Background */}
       <div className="absolute inset-0 bg-black" />
@@ -153,45 +153,45 @@ export default function ContactSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-16 sm:mb-20"
         >
-          <div className="inline-block px-4 py-2 bg-indigo-500/20 border border-indigo-500/30 rounded-full text-indigo-300 mb-6">
+          <div className="inline-block px-4 py-2 bg-indigo-500/20 border border-indigo-500/30 rounded-full text-indigo-300 text-xs sm:text-sm mb-6">
             Get In Touch
           </div>
-          <h2 className="text-4xl md:text-6xl mb-6">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-6">
             Let's Scale Something{" "}
             <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
               Profitable
             </span>
           </h2>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto">
+          <p className="text-base sm:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
             Ready to grow? Send a message, book a call, or reach out directly
-            on WhatsApp — I respond fast.
+            on WhatsApp (I respond fast).
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="h-64 mb-8 rounded-2xl overflow-hidden bg-gradient-to-br from-indigo-500/10 to-purple-500/10 border border-white/10">
+            <div className="h-56 sm:h-64 mb-8 rounded-2xl overflow-hidden bg-gradient-to-br from-indigo-500/10 to-purple-500/10 border border-white/10">
               <AnimatedGlobe />
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               <a
                 href={`mailto:${LINKS.email}`}
-                className="block p-6 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl hover:border-white/20 transition-all duration-300"
+                className="block p-5 sm:p-6 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl hover:border-white/20 transition-all duration-300"
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-6 h-6 text-indigo-400" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-indigo-400" />
                   </div>
                   <div>
-                    <h3 className="text-lg mb-2">Email Me</h3>
-                    <p className="text-white/60">{LINKS.email}</p>
+                    <h3 className="text-base sm:text-lg font-semibold mb-1 text-white">Email Me</h3>
+                    <p className="text-white/60 text-sm sm:text-base break-all">{LINKS.email}</p>
                   </div>
                 </div>
               </a>
@@ -200,16 +200,16 @@ export default function ContactSection() {
                 href={LINKS.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block p-6 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl hover:border-green-500/30 transition-all duration-300"
+                className="block p-5 sm:p-6 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl hover:border-green-500/30 transition-all duration-300"
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-green-500/20 to-teal-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <MessageCircle className="w-6 h-6 text-green-400" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-green-500/20 to-teal-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-400" />
                   </div>
                   <div>
-                    <h3 className="text-lg mb-2">WhatsApp</h3>
-                    <p className="text-white/60">{LINKS.whatsappNumber}</p>
-                    <p className="text-white/40 text-sm">Fastest way to reach me</p>
+                    <h3 className="text-base sm:text-lg font-semibold mb-1 text-white">WhatsApp</h3>
+                    <p className="text-white/60 text-sm sm:text-base">{LINKS.whatsappNumber}</p>
+                    <p className="text-white/40 text-xs sm:text-sm">Fastest way to reach me</p>
                   </div>
                 </div>
               </a>
@@ -218,15 +218,15 @@ export default function ContactSection() {
                 href={LINKS.calendar}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block p-6 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl hover:border-purple-500/30 transition-all duration-300"
+                className="block p-5 sm:p-6 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl hover:border-purple-500/30 transition-all duration-300"
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <CalendarCheck className="w-6 h-6 text-purple-400" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <CalendarCheck className="w-5 h-5 sm:w-6 sm:h-6 text-purple-400" />
                   </div>
                   <div>
-                    <h3 className="text-lg mb-2">Book a 1:1 Audit & Strategy Call</h3>
-                    <p className="text-white/60">Free — competitor analysis included</p>
+                    <h3 className="text-base sm:text-lg font-semibold mb-1 text-white">Book a 1:1 Audit & Strategy Call</h3>
+                    <p className="text-white/60 text-xs sm:text-sm">Free (competitor analysis included)</p>
                   </div>
                 </div>
               </a>
@@ -237,14 +237,14 @@ export default function ContactSection() {
                 href={LINKS.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+                className="w-12 h-12 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 text-white"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
               </a>
               <a
                 href={`mailto:${LINKS.email}`}
-                className="w-12 h-12 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+                className="w-12 h-12 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 text-white"
                 aria-label="Email"
               >
                 <Mail className="w-5 h-5" />
@@ -253,7 +253,7 @@ export default function ContactSection() {
                 href={LINKS.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full flex items-center justify-center hover:bg-white/10 hover:border-green-500/30 transition-all duration-300"
+                className="w-12 h-12 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full flex items-center justify-center hover:bg-white/10 hover:border-green-500/30 transition-all duration-300 text-white"
                 aria-label="WhatsApp"
               >
                 <MessageCircle className="w-5 h-5" />
@@ -268,11 +268,11 @@ export default function ContactSection() {
           >
             <form
               onSubmit={handleSubmit}
-              className="p-8 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl space-y-6"
+              className="p-5 sm:p-8 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl space-y-5"
             >
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-sm mb-2 text-white/80">
+                  <label className="block text-xs sm:text-sm font-medium mb-2 text-white/80">
                     Full Name *
                   </label>
                   <input
@@ -281,12 +281,12 @@ export default function ContactSection() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/40 focus:border-indigo-500/50 focus:outline-none transition-colors"
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-base placeholder-white/40 focus:border-indigo-500/50 focus:outline-none transition-colors"
                     placeholder="John Doe"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm mb-2 text-white/80">
+                  <label className="block text-xs sm:text-sm font-medium mb-2 text-white/80">
                     Email Address *
                   </label>
                   <input
@@ -295,15 +295,15 @@ export default function ContactSection() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/40 focus:border-indigo-500/50 focus:outline-none transition-colors"
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-base placeholder-white/40 focus:border-indigo-500/50 focus:outline-none transition-colors"
                     placeholder="john@company.com"
                   />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-sm mb-2 text-white/80">
+                  <label className="block text-xs sm:text-sm font-medium mb-2 text-white/80">
                     Company / Brand
                   </label>
                   <input
@@ -311,12 +311,12 @@ export default function ContactSection() {
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/40 focus:border-indigo-500/50 focus:outline-none transition-colors"
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-base placeholder-white/40 focus:border-indigo-500/50 focus:outline-none transition-colors"
                     placeholder="Your Company"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm mb-2 text-white/80">
+                  <label className="block text-xs sm:text-sm font-medium mb-2 text-white/80">
                     Phone / WhatsApp
                   </label>
                   <input
@@ -324,21 +324,21 @@ export default function ContactSection() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/40 focus:border-indigo-500/50 focus:outline-none transition-colors"
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-base placeholder-white/40 focus:border-indigo-500/50 focus:outline-none transition-colors"
                     placeholder="+1 (555) 000-0000"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm mb-2 text-white/80">
+                <label className="block text-xs sm:text-sm font-medium mb-2 text-white/80">
                   Monthly Ad Budget
                 </label>
                 <select
                   name="budget"
                   value={formData.budget}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white focus:border-indigo-500/50 focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-base focus:border-indigo-500/50 focus:outline-none transition-colors"
                 >
                   <option value="" className="bg-gray-900">
                     Select your monthly ad budget
@@ -347,10 +347,10 @@ export default function ContactSection() {
                     Less than $3,000
                   </option>
                   <option value="3k-10k" className="bg-gray-900">
-                    $3,000 - $10,000
+                    $3,000 to $10,000
                   </option>
                   <option value="10k-50k" className="bg-gray-900">
-                    $10,000 - $50,000
+                    $10,000 to $50,000
                   </option>
                   <option value=">50k" className="bg-gray-900">
                     More than $50,000
@@ -359,7 +359,7 @@ export default function ContactSection() {
               </div>
 
               <div>
-                <label className="block text-sm mb-2 text-white/80">
+                <label className="block text-xs sm:text-sm font-medium mb-2 text-white/80">
                   Tell Me About Your Brand *
                 </label>
                 <textarea
@@ -367,8 +367,8 @@ export default function ContactSection() {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  rows={5}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/40 focus:border-indigo-500/50 focus:outline-none transition-colors resize-none"
+                  rows={4}
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-base placeholder-white/40 focus:border-indigo-500/50 focus:outline-none transition-colors resize-none"
                   placeholder="What do you sell? What are your goals? What's not working right now?"
                 />
               </div>
@@ -376,7 +376,7 @@ export default function ContactSection() {
               <button
                 type="submit"
                 disabled={status === "sending" || status === "success"}
-                className="group w-full px-8 py-4 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-xl text-white hover:shadow-2xl hover:shadow-indigo-500/50 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70"
+                className="group w-full px-8 py-4 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-xl text-white font-medium hover:shadow-2xl hover:shadow-indigo-500/50 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 text-base"
               >
                 {status === "sending" ? (
                   <>
@@ -398,7 +398,7 @@ export default function ContactSection() {
 
               {status === "success" && (
                 <p className="text-sm text-green-400 text-center">
-                  Thanks! Your message is on its way — I'll get back to you
+                  Thanks! Your message is on its way. I'll get back to you
                   within 24 hours.
                 </p>
               )}
@@ -409,39 +409,11 @@ export default function ContactSection() {
                 </p>
               )}
               {status === "idle" && (
-                <p className="text-sm text-white/50 text-center">
+                <p className="text-xs sm:text-sm text-white/50 text-center">
                   I'll respond within 24 hours
                 </p>
               )}
             </form>
-
-            <div className="mt-6 grid grid-cols-3 gap-4">
-              <a
-                href={LINKS.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 px-4 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl text-white/80 hover:text-white hover:border-blue-500/40 transition-all duration-300 text-sm"
-              >
-                <Linkedin className="w-4 h-4 text-blue-400" />
-                <span className="hidden sm:inline">LinkedIn</span>
-              </a>
-              <a
-                href={`mailto:${LINKS.email}`}
-                className="flex items-center justify-center gap-2 px-4 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl text-white/80 hover:text-white hover:border-indigo-500/40 transition-all duration-300 text-sm"
-              >
-                <Mail className="w-4 h-4 text-indigo-400" />
-                <span className="hidden sm:inline">Email</span>
-              </a>
-              <a
-                href={LINKS.whatsapp}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 px-4 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl text-white/80 hover:text-white hover:border-green-500/40 transition-all duration-300 text-sm"
-              >
-                <MessageCircle className="w-4 h-4 text-green-400" />
-                <span className="hidden sm:inline">WhatsApp</span>
-              </a>
-            </div>
           </motion.div>
         </div>
       </div>
@@ -450,16 +422,16 @@ export default function ContactSection() {
         initial={{ opacity: 0, y: 30 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8, delay: 0.6 }}
-        className="relative mt-32 pt-12 border-t border-white/10"
+        className="relative mt-20 sm:mt-32 pt-10 border-t border-white/10"
       >
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="text-2xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+          <div className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent">
             Saad Hasan
           </div>
-          <div className="text-white/60 text-sm">
-            © 2026 Saad Hasan. All rights reserved.
+          <div className="text-white/60 text-xs sm:text-sm">
+            &copy; 2026 Saad Hasan. All rights reserved.
           </div>
-          <div className="flex gap-6 text-sm text-white/60">
+          <div className="flex flex-wrap justify-center gap-4 text-xs sm:text-sm text-white/60">
             <Link to="/case-studies" className="hover:text-white transition-colors">
               Case Studies
             </Link>

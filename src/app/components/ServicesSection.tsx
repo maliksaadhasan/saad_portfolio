@@ -23,7 +23,7 @@ const services = [
     icon: Gauge,
     title: "Performance Marketing",
     description:
-      "From pixel integration to optimization and scaling — accurate tracking, disciplined testing, and ROAS-driven growth.",
+      "From pixel integration to optimization and scaling: accurate tracking, disciplined testing, and ROAS-driven growth.",
     features: ["Pixel & CAPI Integration", "Conversion Tracking", "Optimization & Scaling"],
     gradient: "from-purple-500 to-purple-700",
   },
@@ -55,7 +55,7 @@ const services = [
     icon: Palette,
     title: "Content Creation & Strategy",
     description:
-      "Content that sells — ad creatives, copy, and content strategy. Currently Content Strategist for JunziDev.",
+      "Content that sells: ad creatives, copy, and content strategy. Currently Content Strategist for JunziDev.",
     features: ["Content Strategy", "Ad Creatives", "Copywriting"],
     gradient: "from-orange-500 to-orange-700",
   },
@@ -70,7 +70,7 @@ export default function ServicesSection() {
     <section
       id="services"
       ref={ref}
-      className="relative py-32 px-6 overflow-hidden"
+      className="relative py-20 px-4 sm:py-32 sm:px-6 overflow-hidden"
     >
       {/* Background */}
       <div className="absolute inset-0 bg-black" />
@@ -80,19 +80,19 @@ export default function ServicesSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-16 sm:mb-20"
         >
-          <div className="inline-block px-4 py-2 bg-pink-500/20 border border-pink-500/30 rounded-full text-pink-300 mb-6">
+          <div className="inline-block px-4 py-2 bg-pink-500/20 border border-pink-500/30 rounded-full text-pink-300 text-xs sm:text-sm mb-6">
             My Services
           </div>
-          <h2 className="text-4xl md:text-6xl mb-6">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-6">
             Everything You Need to{" "}
             <span className="bg-gradient-to-r from-pink-400 to-red-400 bg-clip-text text-transparent">
               Scale
             </span>
           </h2>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto">
-            From pixel integration to optimization and scaling — end-to-end
+          <p className="text-base sm:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
+            From pixel integration to optimization and scaling: end-to-end
             performance marketing that drives real revenue.
           </p>
         </motion.div>
@@ -100,6 +100,7 @@ export default function ServicesSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => {
             const Icon = service.icon;
+            const isHovered = hoveredIndex === index;
             return (
               <motion.div
                 key={index}
@@ -108,12 +109,12 @@ export default function ServicesSection() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
-                className="group relative p-8 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl hover:border-white/20 transition-all duration-300 cursor-pointer"
+                className="group relative p-6 sm:p-8 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl hover:border-white/20 transition-all duration-300"
                 style={{
                   transform:
-                    hoveredIndex === index
-                      ? "perspective(1000px) rotateX(5deg) rotateY(5deg) scale(1.02)"
-                      : "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)",
+                    isHovered
+                      ? "translateY(-4px)"
+                      : "translateY(0px)",
                 }}
               >
                 <div
@@ -121,29 +122,27 @@ export default function ServicesSection() {
                 />
 
                 <div
-                  className={`relative w-14 h-14 mb-6 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center`}
+                  className={`relative w-12 h-12 sm:w-14 sm:h-14 mb-6 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center shadow-lg`}
                 >
-                  <Icon className="w-7 h-7 text-white" />
+                  <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                 </div>
 
-                <h3 className="relative text-2xl mb-4">{service.title}</h3>
-                <p className="relative text-white/70 mb-6 leading-relaxed">
+                <h3 className="relative text-xl sm:text-2xl font-bold mb-3 text-white">{service.title}</h3>
+                <p className="relative text-white/70 mb-6 leading-relaxed text-sm sm:text-base">
                   {service.description}
                 </p>
 
-                <ul className="relative space-y-2">
+                <ul className="relative space-y-2 pt-2 border-t border-white/5">
                   {service.features.map((feature, featureIndex) => (
                     <li
                       key={featureIndex}
-                      className="flex items-center gap-2 text-sm text-white/60"
+                      className="flex items-center gap-2 text-xs sm:text-sm text-white/60"
                     >
-                      <div className="w-1.5 h-1.5 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full" />
+                      <div className="w-1.5 h-1.5 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full flex-shrink-0" />
                       {feature}
                     </li>
                   ))}
                 </ul>
-
-
               </motion.div>
             );
           })}

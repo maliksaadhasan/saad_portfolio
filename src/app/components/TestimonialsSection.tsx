@@ -33,7 +33,7 @@ const testimonials = [
     role: "VP Marketing, GrowthLabs",
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
     rating: 5,
-    text: "Saad Hasan is more than an agency, they're true partners. Their team became an extension of ours, always thinking ahead and bringing innovative solutions. The results exceeded all our expectations.",
+    text: "Saad Hasan is more than an agency, they are true partners. Their team became an extension of ours, always thinking ahead and bringing innovative solutions. The results exceeded all our expectations.",
     company: "GrowthLabs",
   },
   {
@@ -67,7 +67,7 @@ export default function TestimonialsSection() {
     <section
       id="testimonials"
       ref={ref}
-      className="relative py-32 px-6 overflow-hidden"
+      className="relative py-20 px-4 sm:py-32 sm:px-6 overflow-hidden"
     >
       {/* Background */}
       <div className="absolute inset-0 bg-black" />
@@ -77,20 +77,19 @@ export default function TestimonialsSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-20"
         >
-          <div className="inline-block px-4 py-2 bg-rose-500/20 border border-rose-500/30 rounded-full text-rose-300 mb-6">
+          <div className="inline-block px-4 py-2 bg-rose-500/20 border border-rose-500/30 rounded-full text-rose-300 text-xs sm:text-sm mb-6">
             Testimonials
           </div>
-          <h2 className="text-4xl md:text-6xl mb-6">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-6">
             Loved by{" "}
             <span className="bg-gradient-to-r from-rose-400 to-pink-400 bg-clip-text text-transparent">
               Industry Leaders
             </span>
           </h2>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto">
-            Don't just take our word for it, hear from the brands we've helped
-            transform.
+          <p className="text-base sm:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
+            Hear from the brands and clients we have helped scale.
           </p>
         </motion.div>
 
@@ -101,26 +100,26 @@ export default function TestimonialsSection() {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.5 }}
-          className="relative mb-12"
+          className="relative mb-8 sm:mb-12"
         >
-          <div className="relative p-12 bg-gradient-to-br from-white/10 to-white/[0.02] backdrop-blur-xl border border-white/20 rounded-3xl">
+          <div className="relative p-6 sm:p-12 bg-gradient-to-br from-white/10 to-white/[0.02] backdrop-blur-xl border border-white/20 rounded-3xl">
             {/* Quote Icon */}
-            <div className="absolute top-8 left-8 w-16 h-16 bg-gradient-to-br from-rose-500/20 to-pink-500/20 rounded-full flex items-center justify-center">
+            <div className="hidden md:flex absolute top-8 left-8 w-16 h-16 bg-gradient-to-br from-rose-500/20 to-pink-500/20 rounded-full items-center justify-center">
               <Quote className="w-8 h-8 text-rose-400" />
             </div>
 
             {/* Stars */}
-            <div className="flex justify-center gap-1 mb-6 mt-8">
+            <div className="flex justify-center gap-1 mb-6">
               {[...Array(currentTestimonial.rating)].map((_, i) => (
                 <Star
                   key={i}
-                  className="w-6 h-6 fill-yellow-400 text-yellow-400"
+                  className="w-5 h-5 sm:w-6 sm:h-6 fill-yellow-400 text-yellow-400"
                 />
               ))}
             </div>
 
             {/* Testimonial Text */}
-            <p className="text-xl md:text-2xl text-white/90 text-center mb-8 leading-relaxed max-w-4xl mx-auto">
+            <p className="text-base sm:text-xl md:text-2xl text-white/90 text-center mb-8 leading-relaxed max-w-4xl mx-auto italic">
               "{currentTestimonial.text}"
             </p>
 
@@ -129,16 +128,16 @@ export default function TestimonialsSection() {
               <img
                 src={currentTestimonial.image}
                 alt={currentTestimonial.name}
-                className="w-16 h-16 rounded-full object-cover border-2 border-white/20"
+                className="w-12 h-12 sm:w-16 sm:h-16 rounded-full object-cover border-2 border-white/20"
               />
               <div className="text-left">
-                <div className="font-semibold text-lg">
+                <div className="font-semibold text-base sm:text-lg text-white">
                   {currentTestimonial.name}
                 </div>
-                <div className="text-white/60">
+                <div className="text-xs sm:text-sm text-white/60">
                   {currentTestimonial.role}
                 </div>
-                <div className="text-sm text-white/40">
+                <div className="text-xs text-white/40">
                   {currentTestimonial.company}
                 </div>
               </div>
@@ -147,13 +146,13 @@ export default function TestimonialsSection() {
         </motion.div>
 
         {/* Navigation */}
-        <div className="flex items-center justify-center gap-6">
+        <div className="flex items-center justify-center gap-4 sm:gap-6">
           <button
             onClick={prevTestimonial}
-            className="w-12 h-12 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+            className="w-10 h-10 sm:w-12 sm:h-12 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 text-white"
             aria-label="Previous testimonial"
           >
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
 
           {/* Dots */}
@@ -164,7 +163,7 @@ export default function TestimonialsSection() {
                 onClick={() => setCurrentIndex(index)}
                 className={`transition-all duration-300 rounded-full ${
                   index === currentIndex
-                    ? "w-8 h-2 bg-gradient-to-r from-rose-500 to-pink-500"
+                    ? "w-6 sm:w-8 h-2 bg-gradient-to-r from-rose-500 to-pink-500"
                     : "w-2 h-2 bg-white/20 hover:bg-white/40"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
@@ -174,10 +173,10 @@ export default function TestimonialsSection() {
 
           <button
             onClick={nextTestimonial}
-            className="w-12 h-12 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+            className="w-10 h-10 sm:w-12 sm:h-12 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 text-white"
             aria-label="Next testimonial"
           >
-            <ChevronRight className="w-6 h-6" />
+            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
         </div>
 
@@ -200,7 +199,7 @@ export default function TestimonialsSection() {
             <p className="text-sm text-white/70 mb-3">
               "Outstanding results and incredible team to work with!"
             </p>
-            <div className="text-xs text-white/50">- Client Review</div>
+            <div className="text-xs text-white/50">Verified Review</div>
           </motion.div>
 
           <motion.div
@@ -220,7 +219,7 @@ export default function TestimonialsSection() {
             <p className="text-sm text-white/70 mb-3">
               "Best marketing decision we ever made. Highly recommend!"
             </p>
-            <div className="text-xs text-white/50">- Client Review</div>
+            <div className="text-xs text-white/50">Verified Review</div>
           </motion.div>
         </div>
       </div>

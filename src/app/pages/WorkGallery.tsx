@@ -32,51 +32,51 @@ export default function WorkGallery() {
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Navigation */}
-      <div className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
           <Link
             to="/"
-            className="flex items-center gap-2 text-white/80 hover:text-white transition-colors"
+            className="flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm sm:text-base"
           >
-            <ArrowLeft size={20} />
+            <ArrowLeft size={18} />
             <span>Back to Home</span>
           </Link>
-          <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent">
+          <Link to="/" className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent">
             Saad Hasan
           </Link>
         </div>
-      </div>
+      </header>
 
-      <div className="pt-32 pb-24 px-6">
+      <main className="pt-28 sm:pt-36 pb-24 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16"
           >
-            <div className="inline-block px-4 py-2 bg-purple-500/20 border border-purple-500/30 rounded-full text-purple-300 mb-6">
+            <div className="inline-block px-4 py-2 bg-purple-500/20 border border-purple-500/30 rounded-full text-purple-300 text-xs sm:text-sm mb-6">
               Work Gallery
             </div>
-            <h1 className="text-4xl md:text-6xl mb-6">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
               Results,{" "}
               <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                 Straight From the Ad Accounts
               </span>
             </h1>
-            <p className="text-xl text-white/70 max-w-3xl mx-auto mb-10">
-              Real screenshots from Meta Ads Manager and Google Ads, ROAS,
+            <p className="text-base sm:text-xl text-white/70 max-w-3xl mx-auto mb-8 sm:mb-10 leading-relaxed">
+              Real screenshots from Meta Ads Manager and Google Ads: ROAS,
               purchases, leads, and revenue. No mockups, no stock numbers.
             </p>
 
             {/* Filter */}
-            <div className="flex flex-wrap justify-center gap-3">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
               {filters.map((filter) => (
                 <button
                   key={filter}
                   onClick={() => setSelected(filter)}
-                  className={`px-6 py-2 rounded-full transition-all duration-300 ${
+                  className={`px-5 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
                     selected === filter
                       ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg shadow-purple-500/50"
                       : "bg-white/5 backdrop-blur-xl border border-white/10 text-white/70 hover:text-white hover:border-white/20"
@@ -89,7 +89,7 @@ export default function WorkGallery() {
           </motion.div>
 
           {/* Gallery Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {items.map((item, index) => (
               <motion.button
                 key={item.src + index}
@@ -110,7 +110,7 @@ export default function WorkGallery() {
                     {item.platform}
                   </div>
                 </div>
-                <div className="p-4 text-sm text-white/70">{item.caption}</div>
+                <div className="p-4 text-xs sm:text-sm text-white/80 font-medium">{item.caption}</div>
               </motion.button>
             ))}
           </div>
@@ -120,12 +120,12 @@ export default function WorkGallery() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-center mt-20 p-12 bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-red-500/10 backdrop-blur-xl border border-white/10 rounded-3xl"
+            className="text-center mt-16 sm:mt-20 p-8 sm:p-12 bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-red-500/10 backdrop-blur-xl border border-white/10 rounded-3xl"
           >
-            <h2 className="text-3xl md:text-4xl mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-white">
               Want your ad account to look like this?
             </h2>
-            <p className="text-white/70 mb-8 max-w-2xl mx-auto">
+            <p className="text-white/70 mb-8 max-w-2xl mx-auto text-sm sm:text-base">
               Book a free 1:1 audit and strategy call, competitor analysis
               included.
             </p>
@@ -133,14 +133,14 @@ export default function WorkGallery() {
               href={LINKS.calendar}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-10 py-5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white text-lg hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 group"
+              className="inline-flex items-center gap-2 px-8 py-4 sm:px-10 sm:py-5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white text-base sm:text-lg font-medium hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 group"
             >
               <span>Book a 1:1 Audit & Strategy Call</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
           </motion.div>
         </div>
-      </div>
+      </main>
 
       {/* Lightbox */}
       <AnimatePresence>
@@ -150,22 +150,22 @@ export default function WorkGallery() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setLightbox(null)}
-            className="fixed inset-0 z-[70] bg-black/90 backdrop-blur-xl flex items-center justify-center p-6"
+            className="fixed inset-0 z-[70] bg-black/90 backdrop-blur-xl flex items-center justify-center p-4 sm:p-6"
           >
             <button
               onClick={() => setLightbox(null)}
-              className="absolute top-6 right-6 w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-colors z-10"
               aria-label="Close"
             >
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
-            <div className="max-w-6xl w-full" onClick={(e) => e.stopPropagation()}>
+            <div className="max-w-5xl w-full" onClick={(e) => e.stopPropagation()}>
               <img
                 src={lightbox.src}
                 alt={lightbox.caption}
-                className="w-full max-h-[80vh] object-contain rounded-xl"
+                className="w-full max-h-[75vh] sm:max-h-[80vh] object-contain rounded-xl"
               />
-              <p className="text-center text-white/70 mt-4">{lightbox.caption}</p>
+              <p className="text-center text-xs sm:text-sm text-white/80 mt-4 px-2">{lightbox.caption}</p>
             </div>
           </motion.div>
         )}

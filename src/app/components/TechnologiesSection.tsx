@@ -26,7 +26,7 @@ export default function TechnologiesSection() {
     <section
       id="technologies"
       ref={ref}
-      className="relative py-32 px-6 overflow-hidden"
+      className="relative py-20 px-4 sm:py-32 sm:px-6 overflow-hidden"
     >
       {/* Background */}
       <div className="absolute inset-0 bg-black" />
@@ -36,39 +36,39 @@ export default function TechnologiesSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-16 sm:mb-20"
         >
-          <div className="inline-block px-4 py-2 bg-violet-500/20 border border-violet-500/30 rounded-full text-violet-300 mb-6">
+          <div className="inline-block px-4 py-2 bg-violet-500/20 border border-violet-500/30 rounded-full text-violet-300 text-xs sm:text-sm mb-6">
             Platforms & Tools
           </div>
-          <h2 className="text-4xl md:text-6xl mb-6">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-6">
             My{" "}
             <span className="bg-gradient-to-r from-violet-400 to-purple-400 bg-clip-text text-transparent">
               Stack
             </span>
           </h2>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto">
-            The platforms I work in every day — from ad managers and tracking
+          <p className="text-base sm:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
+            The platforms I work in every day, from ad managers and tracking
             to email automation and reporting.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
           {technologies.map((tech, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-              className="group relative p-6 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl hover:border-white/20 transition-all duration-300 flex flex-col items-center justify-center text-center"
+              transition={{ duration: 0.5, delay: index * 0.04 }}
+              className="group relative p-4 sm:p-6 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl hover:border-white/20 transition-all duration-300 flex flex-col items-center justify-center text-center"
             >
-              <div className="w-16 h-16 mb-4 flex items-center justify-center bg-white rounded-xl p-3 group-hover:scale-110 transition-transform duration-300">
-                <div className="text-2xl font-bold text-gray-800">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 mb-3 sm:mb-4 flex items-center justify-center bg-white rounded-xl p-2.5 sm:p-3 group-hover:scale-105 transition-transform duration-300 shadow-md">
+                <div className="text-xl sm:text-2xl font-bold text-gray-800">
                   {tech.name.substring(0, 2).toUpperCase()}
                 </div>
               </div>
 
-              <h3 className="text-lg mb-2 group-hover:text-violet-400 transition-colors duration-300">
+              <h3 className="text-sm sm:text-lg font-semibold mb-1 group-hover:text-violet-400 transition-colors duration-300 text-white">
                 {tech.name}
               </h3>
 
@@ -83,26 +83,26 @@ export default function TechnologiesSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-center mt-24"
+          className="text-center mt-16 sm:mt-24"
         >
-          <h3 className="text-3xl md:text-4xl mb-4">
+          <h3 className="text-2xl sm:text-4xl font-bold mb-4 text-white">
             Industries I've{" "}
             <span className="bg-gradient-to-r from-violet-400 to-pink-400 bg-clip-text text-transparent">
               Scaled
             </span>
           </h3>
-          <p className="text-white/60 mb-10 max-w-2xl mx-auto">
+          <p className="text-white/60 text-sm sm:text-base mb-8 max-w-2xl mx-auto">
             E-commerce and lead generation across 15+ verticals in the US,
             Australia, and beyond.
           </p>
-          <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 max-w-4xl mx-auto">
             {INDUSTRIES.map((industry, index) => (
               <motion.span
                 key={industry}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.4, delay: 0.5 + index * 0.04 }}
-                className="px-5 py-2.5 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full text-sm text-white/80 hover:border-violet-400/50 hover:text-white transition-all duration-300"
+                transition={{ duration: 0.4, delay: 0.4 + index * 0.03 }}
+                className="px-3.5 py-2 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full text-xs sm:text-sm text-white/80 hover:border-violet-400/50 hover:text-white transition-all duration-300"
               >
                 {industry}
               </motion.span>

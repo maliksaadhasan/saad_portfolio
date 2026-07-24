@@ -60,15 +60,15 @@ export const caseStudies: CaseStudy[] = [
     gradient: "from-orange-500 to-red-500",
     featured: true,
     problem:
-      "Pipe Decor sells niche industrial pipe furniture and DIY fittings - a category with a narrow audience and a longer consideration window. Revenue had plateaued, the account leaned on a handful of aging campaigns, and the brand wanted to scale spend aggressively without letting ROAS collapse.",
+      "Pipe Decor sells niche industrial pipe furniture and DIY fittings, a category with a narrow audience and a longer consideration window. Revenue had plateaued, the account leaned on a handful of aging campaigns, and the brand wanted to scale spend aggressively without letting ROAS collapse.",
     steps: [
       "Restructured the account around Advantage+ shopping campaigns for prospecting, backed by clean pixel and catalog data.",
       "Built dedicated dynamic and static remarketing campaigns to capture the long consideration cycle typical of furniture buyers.",
       "Tested creative formats and product angles continuously, feeding winners into the scaled campaigns.",
-      "Scaled budget in controlled steps - 131% more spend year over year - while monitoring frequency and ROAS at every increase.",
+      "Scaled budget in controlled steps (131% more spend year over year) while monitoring frequency and ROAS at every increase.",
     ],
     outcome:
-      "In 2025 the account generated $417K in purchase conversion value from 2,408 purchases - averaging around $52K per month in Meta revenue. Remarketing campaigns sustained 4.4–5.4x ROAS while total spend more than doubled versus the prior year.",
+      "In 2025 the account generated $417K in purchase conversion value from 2,408 purchases, averaging around $52K per month in Meta revenue. Remarketing campaigns sustained 4.4x to 5.4x ROAS while total spend more than doubled versus the prior year.",
     metrics: [
       { label: "Yearly Revenue", value: "$417K" },
       { label: "Purchases", value: "2,408" },
@@ -81,12 +81,12 @@ export const caseStudies: CaseStudy[] = [
     industry: "Health, Wellness & CBD",
     platform: "Meta Ads",
     description:
-      "Built a compliant Meta Ads engine for a CBD mushroom & gummies brand - 4.2x monthly ROAS and ~$60K/month in revenue.",
+      "Built a compliant Meta Ads engine for a CBD mushroom & gummies brand: 4.2x monthly ROAS and ~$60K/month in revenue.",
     image: null,
     gradient: "from-green-500 to-teal-500",
     featured: true,
     problem:
-      "Amentara sells mushroom supplements and gummies in the CBD space - one of the hardest categories to advertise on Meta. Ads were getting rejected, the account was at constant risk of restrictions, and there was no reliable way to scale while staying compliant with Meta's policies.",
+      "Amentara sells mushroom supplements and gummies in the CBD space, one of the hardest categories to advertise on Meta. Ads were getting rejected, the account was at constant risk of restrictions, and there was no reliable way to scale while staying compliant with Meta's policies.",
     steps: [
       "Developed a fully compliant creative and landing page strategy, positioning products around wellness benefits within Meta's policy lines.",
       "Set up resilient tracking with Pixel and Conversions API so optimization signals stayed strong.",
@@ -94,7 +94,7 @@ export const caseStudies: CaseStudy[] = [
       "Scaled budget gradually month over month, protecting both the account's standing and its return.",
     ],
     outcome:
-      "The account now holds a consistent 4.2x monthly ROAS and generates around $60K per month in revenue from Meta Ads - and it's still scaling, with spend increasing every month.",
+      "The account now holds a consistent 4.2x monthly ROAS and generates around $60K per month in revenue from Meta Ads, and it is still scaling with spend increasing every month.",
     metrics: [
       { label: "Monthly ROAS", value: "4.2x" },
       { label: "Monthly Revenue", value: "$60K" },
@@ -107,7 +107,7 @@ export const caseStudies: CaseStudy[] = [
     industry: "Toys & Educational Products",
     platform: "Google Ads",
     description:
-      "Post-holiday Google Ads turnaround for a US toys store - 544% ROAS in January, the hardest month in the category.",
+      "Post-holiday Google Ads turnaround for a US toys store: 544% ROAS in January, the hardest month in the category.",
     image: googleToys,
     gradient: "from-blue-500 to-cyan-500",
     featured: false,
@@ -119,7 +119,7 @@ export const caseStudies: CaseStudy[] = [
       "Shifted budget toward remarketing and high-intent search terms rather than broad prospecting.",
     ],
     outcome:
-      "The account delivered a 544% ROAS in January 2026 with $3.62K in conversion value from 817 clicks and 70.1K impressions - profitable growth in the category's weakest month.",
+      "The account delivered a 544% ROAS in January 2026 with $3.62K in conversion value from 817 clicks and 70.1K impressions: profitable growth in the category's weakest month.",
     metrics: [
       { label: "ROAS", value: "544%" },
       { label: "Conv. Value", value: "$3.6K" },
@@ -144,7 +144,7 @@ export const caseStudies: CaseStudy[] = [
       "Aligned landing pages with ad intent to lift conversion rate on high-AOV products.",
     ],
     outcome:
-      "The account reached a 380% ROAS in January 2026 with 785 clicks at a $1.53 average CPC - steady, profitable performance on a high-ticket catalog.",
+      "The account reached a 380% ROAS in January 2026 with 785 clicks at a $1.53 average CPC: steady, profitable performance on a high-ticket catalog.",
     metrics: [
       { label: "ROAS", value: "380%" },
       { label: "Avg CPC", value: "$1.53" },
@@ -169,7 +169,7 @@ export const caseStudies: CaseStudy[] = [
       "Tracked calls and form fills as conversions so optimization focused on real bookings.",
     ],
     outcome:
-      "January 2026 delivered 15 qualified patient leads on just $443 of spend - roughly $30 per lead for treatments worth hundreds to thousands of dollars each.",
+      "January 2026 delivered 15 qualified patient leads on just $443 of spend: roughly $30 per lead for treatments worth hundreds to thousands of dollars each.",
     metrics: [
       { label: "Cost / Lead", value: "~$30" },
       { label: "Leads", value: "15" },
@@ -194,7 +194,7 @@ export const caseStudies: CaseStudy[] = [
       "Refined targeting continuously to keep lead quality high in a small market.",
     ],
     outcome:
-      "The campaigns produce a steady flow of qualified, high-intent leads - with individual antique transactions large enough that a handful of leads per week pays for the entire program.",
+      "The campaigns produce a steady flow of qualified, high-intent leads, with individual antique transactions large enough that a handful of leads per week pays for the entire program.",
     metrics: [
       { label: "Lead Quality", value: "High-intent" },
       { label: "Market", value: "USA" },
