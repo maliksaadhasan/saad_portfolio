@@ -66,9 +66,23 @@ export default function CaseStudiesSection() {
                   )}
                   <div className={`absolute inset-0 bg-gradient-to-t ${study.gradient} opacity-40 group-hover:opacity-20 transition-opacity duration-300`} />
 
-                  <div className="absolute top-3 left-3 px-3 py-1 bg-black/60 backdrop-blur-xl rounded-full text-xs text-white border border-white/20">
-                    {study.industry}
-                  </div>
+                  {/* Logo overlay if available */}
+                  {study.logo && (
+                    <div className="absolute top-3 left-3 z-10 px-3 py-1.5 bg-black/80 backdrop-blur-xl border border-white/20 rounded-xl flex items-center justify-center max-w-[150px] shadow-lg">
+                      <img
+                        src={study.logo}
+                        alt={`${study.client} Logo`}
+                        className="h-5 sm:h-6 w-auto object-contain max-w-[130px]"
+                      />
+                    </div>
+                  )}
+
+                  {!study.logo && (
+                    <div className="absolute top-3 left-3 px-3 py-1 bg-black/60 backdrop-blur-xl rounded-full text-xs text-white border border-white/20">
+                      {study.industry}
+                    </div>
+                  )}
+
                   <div className="absolute top-3 right-3 px-3 py-1 bg-black/60 backdrop-blur-xl rounded-full text-xs text-white/80 border border-white/20">
                     {study.platform}
                   </div>
@@ -76,10 +90,12 @@ export default function CaseStudiesSection() {
 
                 <div className="p-6 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-xl sm:text-2xl font-bold mb-3 flex items-center justify-between text-white">
-                      {study.client}
-                      <ArrowRight className="w-5 h-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                    </h3>
+                    <div className="flex items-center justify-between gap-2 mb-3">
+                      <h3 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+                        {study.client}
+                      </h3>
+                      <ArrowRight className="w-5 h-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 flex-shrink-0" />
+                    </div>
                     <p className="text-white/70 text-sm mb-6 leading-relaxed">{study.description}</p>
                   </div>
 

@@ -106,9 +106,22 @@ export default function CaseStudies() {
                       </div>
                     )}
                     <div className={`absolute inset-0 bg-gradient-to-t ${study.gradient} opacity-40 group-hover:opacity-20 transition-opacity duration-300`} />
-                    <div className="absolute top-3 left-3 px-3 py-1 bg-black/60 backdrop-blur-xl rounded-full text-xs text-white border border-white/20">
-                      {study.industry}
-                    </div>
+                    
+                    {/* Logo Overlay */}
+                    {study.logo ? (
+                      <div className="absolute top-3 left-3 z-10 px-3 py-1.5 bg-black/80 backdrop-blur-xl border border-white/20 rounded-xl flex items-center justify-center max-w-[150px] shadow-lg">
+                        <img
+                          src={study.logo}
+                          alt={`${study.client} Logo`}
+                          className="h-5 sm:h-6 w-auto object-contain max-w-[130px]"
+                        />
+                      </div>
+                    ) : (
+                      <div className="absolute top-3 left-3 px-3 py-1 bg-black/60 backdrop-blur-xl rounded-full text-xs text-white border border-white/20">
+                        {study.industry}
+                      </div>
+                    )}
+
                     <div className="absolute bottom-3 right-3 px-3 py-1 bg-black/60 backdrop-blur-xl rounded-full text-xs text-white/80 border border-white/20">
                       {study.platform}
                     </div>

@@ -1,8 +1,8 @@
 import { Link } from "react-router";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ArrowLeft, ArrowRight, X } from "lucide-react";
-import { galleryItems, GalleryItem } from "@/app/data/gallery";
+import { ArrowLeft, ArrowRight, X, Folder, Layers, Sparkles } from "lucide-react";
+import { galleryEntries, GalleryFolder, GalleryItem, GalleryEntry } from "@/app/data/gallery";
 import { LINKS } from "@/app/data/site";
 import WhatsAppButton from "@/app/components/WhatsAppButton";
 
@@ -10,7 +10,8 @@ const filters = ["All", "Meta Ads", "Google Ads"] as const;
 
 export default function WorkGallery() {
   const [selected, setSelected] = useState<(typeof filters)[number]>("All");
-  const [lightbox, setLightbox] = useState<GalleryItem | null>(null);
+  const [activeFolder, setActiveFolder] = useState<GalleryFolder | null>(null);
+  const [lightboxItem, setLightboxItem] = useState<GalleryItem | null>(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -18,16 +19,22 @@ export default function WorkGallery() {
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setLightbox(null);
+      if (e.key === "Escape") {
+        if (lightboxItem) {
+          setLightboxItem(null);
+        } else if (activeFolder) {
+          setActiveFolder(null);
+        }
+      }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, []);
+  }, [lightboxItem, activeFolder]);
 
-  const items =
-    selected === "All"
-      ? galleryItems
-      : galleryItems.filter((item) => item.platform === selected);
+  const filteredEntries = galleryEntries.filter((entry) => {
+    if (selected === "All") return true;
+    return entry.platform === selected;
+  });
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -90,29 +97,87 @@ export default function WorkGallery() {
 
           {/* Gallery Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-            {items.map((item, index) => (
-              <motion.button
-                key={item.src + index}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: Math.min(index * 0.05, 0.5) }}
-                onClick={() => setLightbox(item)}
-                className="group text-left rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/40 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/[0.02]"
-              >
-                <div className="relative overflow-hidden aspect-video bg-black/40">
-                  <img
-                    src={item.src}
-                    alt={item.caption}
-                    loading="lazy"
-                    className="w-full h-full object-cover object-left-top group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute top-3 right-3 px-3 py-1 bg-black/60 backdrop-blur-xl rounded-full text-xs text-white/80 border border-white/20">
-                    {item.platform}
+            {filteredEntries.map((entry, index) => {
+              // FOLDER CARD (Milk for Bubs aggregated album)
+              if ("isFolder" in entry) {
+                const folder = entry as GalleryFolder;
+                return (
+                  <motion.div
+                    key={folder.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: Math.min(index * 0.05, 0.5) }}
+                    onClick={() => setActiveFolder(folder)}
+                    className="group relative cursor-pointer rounded-2xl overflow-hidden border-2 border-purple-500/40 hover:border-purple-400 transition-all duration-300 bg-gradient-to-br from-purple-900/20 via-black to-pink-900/20 p-1 shadow-2xl hover:shadow-purple-500/20"
+                  >
+                    {/* Multi-layer Card Stack Aesthetic */}
+                    <div className="relative overflow-hidden rounded-xl aspect-video bg-black/60">
+                      <img
+                        src={folder.coverImage}
+                        alt={folder.title}
+                        loading="lazy"
+                        className="w-full h-full object-cover object-left-top group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+
+                      {/* Folder Badge Header */}
+                      <div className="absolute top-3 left-3 flex items-center gap-2 px-3 py-1.5 bg-purple-600/90 backdrop-blur-xl rounded-full text-xs text-white font-semibold border border-purple-400/40 shadow-lg">
+                        <Folder className="w-3.5 h-3.5 fill-white text-purple-600" />
+                        <span>Album Folder ({folder.items.length} Screenshots)</span>
+                      </div>
+
+                      <div className="absolute top-3 right-3 px-3 py-1 bg-black/60 backdrop-blur-xl rounded-full text-xs text-white/80 border border-white/20">
+                        {folder.platform}
+                      </div>
+
+                      {/* Bottom Folder Overlay */}
+                      <div className="absolute bottom-3 left-3 right-3 p-3 bg-black/80 backdrop-blur-xl rounded-xl border border-white/10">
+                        <div className="flex items-center gap-2 text-purple-300 text-xs font-bold mb-1">
+                          <Sparkles className="w-3.5 h-3.5" />
+                          <span>{folder.roas}</span>
+                        </div>
+                        <h3 className="text-base sm:text-lg font-bold text-white leading-snug line-clamp-1">
+                          {folder.title}
+                        </h3>
+                        <p className="text-xs text-white/60 line-clamp-1 mt-0.5">
+                          {folder.subtitle} &bull; Click to open album
+                        </p>
+                      </div>
+                    </div>
+                    <div className="p-3 text-center text-xs text-purple-300 font-semibold flex items-center justify-center gap-1">
+                      <Layers className="w-3.5 h-3.5" />
+                      <span>Click to view all {folder.items.length} monthly screenshots</span>
+                    </div>
+                  </motion.div>
+                );
+              }
+
+              // STANDALONE SCREENSHOT CARD
+              const item = entry as GalleryItem;
+              return (
+                <motion.button
+                  key={item.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: Math.min(index * 0.05, 0.5) }}
+                  onClick={() => setLightboxItem(item)}
+                  className="group text-left rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/40 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/[0.02]"
+                >
+                  <div className="relative overflow-hidden aspect-video bg-black/40">
+                    <img
+                      src={item.src}
+                      alt={item.caption}
+                      loading="lazy"
+                      className="w-full h-full object-cover object-left-top group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute top-3 right-3 px-3 py-1 bg-black/60 backdrop-blur-xl rounded-full text-xs text-white/80 border border-white/20">
+                      {item.platform}
+                    </div>
                   </div>
-                </div>
-                <div className="p-4 text-xs sm:text-sm text-white/80 font-medium">{item.caption}</div>
-              </motion.button>
-            ))}
+                  <div className="p-4 text-xs sm:text-sm text-white/80 font-medium">{item.caption}</div>
+                </motion.button>
+              );
+            })}
           </div>
 
           {/* CTA */}
@@ -142,30 +207,87 @@ export default function WorkGallery() {
         </div>
       </main>
 
-      {/* Lightbox */}
+      {/* FOLDER ALBUM MODAL (Milk for Bubs Dedicated Screenshots Viewer) */}
       <AnimatePresence>
-        {lightbox && (
+        {activeFolder && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setLightbox(null)}
-            className="fixed inset-0 z-[70] bg-black/90 backdrop-blur-xl flex items-center justify-center p-4 sm:p-6"
+            className="fixed inset-0 z-[65] bg-black/95 backdrop-blur-2xl overflow-y-auto pt-24 pb-12 px-4 sm:px-6"
+          >
+            <div className="max-w-7xl mx-auto">
+              {/* Folder Header */}
+              <div className="flex items-start justify-between gap-4 mb-8 p-6 bg-gradient-to-r from-purple-900/30 via-pink-900/20 to-black border border-purple-500/30 rounded-2xl">
+                <div>
+                  <div className="flex items-center gap-2 text-purple-300 text-xs sm:text-sm font-semibold mb-2">
+                    <Folder className="w-4 h-4 text-purple-400 fill-purple-400/30" />
+                    <span>Album Folder &bull; {activeFolder.items.length} Meta Ads Manager Screenshots</span>
+                  </div>
+                  <h2 className="text-2xl sm:text-4xl font-bold text-white mb-2">{activeFolder.title}</h2>
+                  <p className="text-purple-200 text-sm sm:text-base font-semibold">{activeFolder.roas}</p>
+                </div>
+
+                <button
+                  onClick={() => setActiveFolder(null)}
+                  className="w-10 h-10 sm:w-12 sm:h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-colors flex-shrink-0"
+                  aria-label="Close Folder"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
+
+              {/* Folder Items Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {activeFolder.items.map((subItem) => (
+                  <button
+                    key={subItem.id}
+                    onClick={() => setLightboxItem(subItem)}
+                    className="group text-left rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-all duration-300 bg-white/5"
+                  >
+                    <div className="relative overflow-hidden aspect-video bg-black/40">
+                      <img
+                        src={subItem.src}
+                        alt={subItem.caption}
+                        loading="lazy"
+                        className="w-full h-full object-cover object-left-top group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                    <div className="p-4 text-xs sm:text-sm text-white/80 font-medium leading-relaxed">
+                      {subItem.caption}
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Lightbox for Individual Screenshot Inspection */}
+      <AnimatePresence>
+        {lightboxItem && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setLightboxItem(null)}
+            className="fixed inset-0 z-[75] bg-black/90 backdrop-blur-xl flex items-center justify-center p-4 sm:p-6"
           >
             <button
-              onClick={() => setLightbox(null)}
+              onClick={() => setLightboxItem(null)}
               className="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-colors z-10"
-              aria-label="Close"
+              aria-label="Close Lightbox"
             >
               <X className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
             <div className="max-w-5xl w-full" onClick={(e) => e.stopPropagation()}>
               <img
-                src={lightbox.src}
-                alt={lightbox.caption}
+                src={lightboxItem.src}
+                alt={lightboxItem.caption}
                 className="w-full max-h-[75vh] sm:max-h-[80vh] object-contain rounded-xl"
               />
-              <p className="text-center text-xs sm:text-sm text-white/80 mt-4 px-2">{lightbox.caption}</p>
+              <p className="text-center text-xs sm:text-sm text-white/90 mt-4 px-2 font-medium">{lightboxItem.caption}</p>
             </div>
           </motion.div>
         )}

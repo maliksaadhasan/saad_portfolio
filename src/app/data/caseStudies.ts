@@ -7,6 +7,11 @@ import googleAntiques from "@/assets/gallery/google-antiques.png";
 import googleTile from "@/assets/gallery/google-tile.png";
 import googleRehab from "@/assets/gallery/google-rehab.png";
 
+// Client Logos
+import pipeDecorLogo from "@/assets/logos/pipe-decor-logo.jpg";
+import amentaraLogo from "@/assets/logos/amentara-logo.png";
+import biggoBlocksLogo from "@/assets/logos/biggoblocks-logo.png";
+
 export interface CaseStudy {
   id: string;
   client: string;
@@ -14,6 +19,7 @@ export interface CaseStudy {
   platform: string;
   description: string;
   image: string | null;
+  logo: string | null;
   gradient: string;
   featured: boolean;
   problem: string;
@@ -31,6 +37,7 @@ export const caseStudies: CaseStudy[] = [
     description:
       "Scaled a lactation-support brand to a 9.04x yearly ROAS with $431K+ in tracked Meta revenue in 2025.",
     image: milkforbubs2025,
+    logo: null,
     gradient: "from-purple-500 to-blue-500",
     featured: true,
     problem:
@@ -57,14 +64,15 @@ export const caseStudies: CaseStudy[] = [
     description:
       "Grew an industrial pipe furniture brand to $417K in yearly Meta revenue while scaling spend 131% year over year.",
     image: pipedecor2025,
+    logo: pipeDecorLogo,
     gradient: "from-orange-500 to-red-500",
     featured: true,
     problem:
-      "Pipe Decor sells niche industrial pipe furniture and DIY fittings, a category with a narrow audience and a longer consideration window. Revenue had plateaued, the account leaned on a handful of aging campaigns, and the brand wanted to scale spend aggressively without letting ROAS collapse.",
+      "Pipe Decor sells niche industrial pipe furniture, shelf brackets, iron table legs, and DIY pipe fittings: a high-ticket home decor category with a narrow audience and longer consideration window. Revenue had plateaued, the account leaned on a handful of aging campaigns, and the brand wanted to scale spend aggressively without letting ROAS collapse.",
     steps: [
-      "Restructured the account around Advantage+ shopping campaigns for prospecting, backed by clean pixel and catalog data.",
-      "Built dedicated dynamic and static remarketing campaigns to capture the long consideration cycle typical of furniture buyers.",
-      "Tested creative formats and product angles continuously, feeding winners into the scaled campaigns.",
+      "Restructured the account around Advantage+ shopping campaigns for prospecting, backed by clean catalog feed data for pipe kits and industrial fixtures.",
+      "Built dedicated dynamic and static remarketing campaigns to capture the long consideration cycle typical of home decor and furniture buyers.",
+      "Tested creative formats (installation demo clips, UGC home transformations, industrial aesthetic static shots) continuously, feeding winners into scaled campaigns.",
       "Scaled budget in controlled steps (131% more spend year over year) while monitoring frequency and ROAS at every increase.",
     ],
     outcome:
@@ -83,12 +91,13 @@ export const caseStudies: CaseStudy[] = [
     description:
       "Built a compliant Meta Ads engine for a CBD mushroom & gummies brand: 4.2x monthly ROAS and ~$60K/month in revenue.",
     image: null,
+    logo: amentaraLogo,
     gradient: "from-green-500 to-teal-500",
     featured: true,
     problem:
-      "Amentara sells mushroom supplements and gummies in the CBD space, one of the hardest categories to advertise on Meta. Ads were getting rejected, the account was at constant risk of restrictions, and there was no reliable way to scale while staying compliant with Meta's policies.",
+      "Amentara sells functional mushroom supplements, nocturnal wellness gummies, and daily calm formulas in the CBD space, one of the hardest categories to advertise on Meta. Ads were getting rejected, the account was at constant risk of restrictions, and there was no reliable way to scale while staying compliant with Meta's policies.",
     steps: [
-      "Developed a fully compliant creative and landing page strategy, positioning products around wellness benefits within Meta's policy lines.",
+      "Developed a fully compliant creative and landing page strategy, positioning products around evening relaxation routines and daily wellness benefits within Meta's policy lines.",
       "Set up resilient tracking with Pixel and Conversions API so optimization signals stayed strong.",
       "Tested angles and creatives systematically to find hooks that converted without triggering policy flags.",
       "Scaled budget gradually month over month, protecting both the account's standing and its return.",
@@ -103,20 +112,21 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: "toys-ecommerce",
-    client: "Toys E-commerce Brand",
+    client: "Biggo Blocks",
     industry: "Toys & Educational Products",
     platform: "Google Ads",
     description:
-      "Post-holiday Google Ads turnaround for a US toys store: 544% ROAS in January, the hardest month in the category.",
+      "Post-holiday Google Ads turnaround for giant jumbo building blocks store: 544% ROAS in January, the hardest month in the category.",
     image: googleToys,
+    logo: biggoBlocksLogo,
     gradient: "from-blue-500 to-cyan-500",
-    featured: false,
+    featured: true,
     problem:
-      "January is brutal for toy brands: demand crashes after the holidays while leftover campaign structures keep spending like it's December. This US toys store needed to stay profitable through the slump instead of pausing ads entirely.",
+      "January is brutal for toy brands: demand crashes after the holidays while leftover campaign structures keep spending like it's December. This jumbo building blocks store needed to stay profitable through the slump instead of pausing ads entirely.",
     steps: [
-      "Cleaned up the product feed and restructured shopping campaigns around the products that still sold in Q1.",
+      "Cleaned up the product feed and restructured shopping campaigns around top-selling jumbo brick sets and STEM educational packs.",
       "Cut wasted spend aggressively with negative keywords and device/geo adjustments.",
-      "Shifted budget toward remarketing and high-intent search terms rather than broad prospecting.",
+      "Shifted budget toward remarketing and high-intent search terms like 'jumbo building blocks' rather than broad prospecting.",
     ],
     outcome:
       "The account delivered a 544% ROAS in January 2026 with $3.62K in conversion value from 817 clicks and 70.1K impressions: profitable growth in the category's weakest month.",
@@ -134,6 +144,7 @@ export const caseStudies: CaseStudy[] = [
     description:
       "380% ROAS for a US utility sinks and home fixtures e-commerce store on Google Ads.",
     image: googleSinks,
+    logo: null,
     gradient: "from-slate-500 to-blue-500",
     featured: false,
     problem:
@@ -159,6 +170,7 @@ export const caseStudies: CaseStudy[] = [
     description:
       "High-value patient leads at ~$30 each for a US aesthetic and laser treatment center.",
     image: googleAesthetic,
+    logo: null,
     gradient: "from-pink-500 to-rose-500",
     featured: false,
     problem:
@@ -184,6 +196,7 @@ export const caseStudies: CaseStudy[] = [
     description:
       "Qualified buyer leads for a US antiques business in a niche, high-value market.",
     image: googleAntiques,
+    logo: null,
     gradient: "from-amber-500 to-yellow-600",
     featured: false,
     problem:
@@ -209,6 +222,7 @@ export const caseStudies: CaseStudy[] = [
     description:
       "Local lead generation for a US tile restoration service business.",
     image: googleTile,
+    logo: null,
     gradient: "from-teal-500 to-emerald-600",
     featured: false,
     problem:
@@ -234,6 +248,7 @@ export const caseStudies: CaseStudy[] = [
     description:
       "Patient lead generation for a US rehab and health services provider.",
     image: googleRehab,
+    logo: null,
     gradient: "from-indigo-500 to-purple-600",
     featured: false,
     problem:

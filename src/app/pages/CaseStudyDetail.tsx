@@ -59,6 +59,16 @@ export default function CaseStudyDetail() {
             transition={{ duration: 0.8 }}
             className="mb-10 sm:mb-12"
           >
+            {caseStudy.logo && (
+              <div className="mb-6 p-3.5 sm:p-4 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl inline-block max-w-[240px] shadow-xl">
+                <img
+                  src={caseStudy.logo}
+                  alt={`${caseStudy.client} Logo`}
+                  className="h-8 sm:h-10 w-auto object-contain max-w-[200px]"
+                />
+              </div>
+            )}
+
             <div className="flex flex-wrap gap-2.5 mb-6">
               <span className="px-3.5 py-1.5 bg-purple-500/20 border border-purple-500/30 rounded-full text-purple-300 text-xs sm:text-sm font-medium">
                 {caseStudy.industry}
