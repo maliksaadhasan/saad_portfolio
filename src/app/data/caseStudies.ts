@@ -7,11 +7,6 @@ import googleAntiques from "@/assets/gallery/google-antiques.png";
 import googleTile from "@/assets/gallery/google-tile.png";
 import googleRehab from "@/assets/gallery/google-rehab.png";
 
-// Client Logos
-import pipeDecorLogo from "@/assets/logos/pipe-decor-logo.jpg";
-import amentaraLogo from "@/assets/logos/amentara-logo.png";
-import biggoBlocksLogo from "@/assets/logos/biggoblocks-logo.png";
-
 export interface CaseStudy {
   id: string;
   client: string;
@@ -31,25 +26,25 @@ export interface CaseStudy {
 export const caseStudies: CaseStudy[] = [
   {
     id: "milk-for-bubs",
-    client: "Milk for Bubs",
+    client: "Mother & Baby Care Brand (Confidential)",
     industry: "Baby & Mother Care E-commerce",
     platform: "Meta Ads",
     description:
-      "Scaled a lactation-support brand to a 9.04x yearly ROAS with $431K+ in tracked Meta revenue in 2025.",
+      "Scaled a leading lactation-support DTC brand (undisclosed per NDA) to a 9.04x yearly ROAS with $431K+ in tracked Meta revenue in 2025.",
     image: milkforbubs2025,
     logo: null,
     gradient: "from-purple-500 to-blue-500",
     featured: true,
     problem:
-      "Milk for Bubs had a loyal product but an inefficient ad account. Budget was spread across traffic and engagement campaigns that generated clicks, not customers. Purchase tracking was unreliable, CPMs in the mum-and-baby niche were climbing, and the brand had no clear picture of which products or audiences actually drove revenue.",
+      "The mother and baby care brand had a loyal customer following but an inefficient ad account structure. Budget was spread across traffic and engagement campaigns that generated low-intent clicks rather than profitable purchases. Purchase tracking was uncalibrated, CPMs in the parent-and-baby niche were climbing, and the brand lacked clarity on which creative angles or audiences truly drove bottom-line revenue.",
     steps: [
-      "Audited the full account and rebuilt tracking with proper Meta Pixel and Conversions API setup, so every purchase was attributed accurately.",
-      "Killed underperforming traffic campaigns and consolidated budget into purchase-optimized sales campaigns around the two hero products: Lactation Cookies and the Premium Mommy Starter Kit.",
-      "Ran structured creative testing with benefit-led hooks tailored to new mums, then scaled the winning angles.",
-      "Layered in retargeting for engaged shoppers and past visitors, and scaled winning campaigns gradually to protect ROAS.",
+      "Audited the full account architecture and rebuilt server-side tracking via Meta Pixel and Conversions API, ensuring accurate purchase attribution.",
+      "Killed underperforming traffic campaigns and consolidated budget into high-intent purchase-optimized sales campaigns around hero products: Lactation Support Cookies and Premium Mommy Starter Kits.",
+      "Executed structured creative testing featuring benefit-led hooks tailored to new mothers, then scaled top-performing angles.",
+      "Layered in high-converting retargeting funnels for engaged shoppers and past store visitors while scaling budgets gradually to protect ROAS.",
     ],
     outcome:
-      "In 2025 the account turned $47.7K in ad spend into $431K+ in tracked purchase value at a 9.04x blended ROAS, with 5,357 purchases and 4.6M impressions. The Lactation Cookies campaign alone delivered an 8.84x ROAS on $39K spend, while the Starter Kit campaign hit 9.91x.",
+      "In 2025, the account turned $47.7K in ad spend into $431K+ in tracked purchase value at a 9.04x blended ROAS, delivering 5,357 purchases and 4.6M impressions. The Lactation Cookies campaign delivered an 8.84x ROAS on $39K spend, while the Starter Kit campaign hit 9.91x.",
     metrics: [
       { label: "Yearly ROAS", value: "9.04x" },
       { label: "Revenue", value: "$431K+" },
@@ -58,25 +53,25 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: "pipe-decor",
-    client: "Pipe Decor",
+    client: "Industrial Furniture Brand (NDA Protected)",
     industry: "Industrial & Pipe Furniture",
     platform: "Meta Ads",
     description:
-      "Grew an industrial pipe furniture brand to $417K in yearly Meta revenue while scaling spend 131% year over year.",
+      "Grew a premier industrial pipe furniture brand (undisclosed per NDA) to $417K in yearly Meta revenue while scaling ad spend 131% YoY.",
     image: pipedecor2025,
-    logo: pipeDecorLogo,
+    logo: null,
     gradient: "from-orange-500 to-red-500",
     featured: true,
     problem:
-      "Pipe Decor sells niche industrial pipe furniture, shelf brackets, iron table legs, and DIY pipe fittings: a high-ticket home decor category with a narrow audience and longer consideration window. Revenue had plateaued, the account leaned on a handful of aging campaigns, and the brand wanted to scale spend aggressively without letting ROAS collapse.",
+      "The brand sells niche industrial pipe furniture, shelf brackets, iron table legs, and DIY pipe fittings: a high-ticket home decor category with a narrow target audience and longer consideration windows. Revenue had plateaued, the ad account relied on aging campaigns, and the brand needed to scale spend aggressively without degrading return on ad spend.",
     steps: [
-      "Restructured the account around Advantage+ shopping campaigns for prospecting, backed by clean catalog feed data for pipe kits and industrial fixtures.",
-      "Built dedicated dynamic and static remarketing campaigns to capture the long consideration cycle typical of home decor and furniture buyers.",
-      "Tested creative formats (installation demo clips, UGC home transformations, industrial aesthetic static shots) continuously, feeding winners into scaled campaigns.",
-      "Scaled budget in controlled steps (131% more spend year over year) while monitoring frequency and ROAS at every increase.",
+      "Restructured the account around Advantage+ Shopping Campaigns (ASC) for broad prospecting, supported by clean product catalog feed data for pipe kits and industrial fixtures.",
+      "Built dedicated dynamic and static remarketing funnels to capture long consideration cycles typical of home decor and interior design buyers.",
+      "Tested high-converting creative formats (installation demo clips, UGC home transformations, and industrial aesthetic lifestyle shots) continuously.",
+      "Scaled monthly budgets in controlled 15–20% steps (+131% spend year over year) while monitoring frequency and ROAS at every increment.",
     ],
     outcome:
-      "In 2025 the account generated $417K in purchase conversion value from 2,408 purchases, averaging around $52K per month in Meta revenue. Remarketing campaigns sustained 4.4x to 5.4x ROAS while total spend more than doubled versus the prior year.",
+      "In 2025, the account generated $417K in purchase conversion value from 2,408 purchases, averaging over $52K per month in Meta revenue. Remarketing campaigns sustained 4.4x to 5.4x ROAS while total ad spend more than doubled year over year.",
     metrics: [
       { label: "Yearly Revenue", value: "$417K" },
       { label: "Purchases", value: "2,408" },
@@ -85,25 +80,25 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: "amentara",
-    client: "Amentara",
+    client: "CBD & Wellness Brand (Confidential)",
     industry: "Health, Wellness & CBD",
     platform: "Meta Ads",
     description:
-      "Built a compliant Meta Ads engine for a CBD mushroom & gummies brand: 4.2x monthly ROAS and ~$60K/month in revenue.",
+      "Built a compliant Meta Ads growth engine for a CBD mushroom & gummies brand (undisclosed per NDA): 4.2x monthly ROAS and ~$60K/month in revenue.",
     image: null,
-    logo: amentaraLogo,
+    logo: null,
     gradient: "from-green-500 to-teal-500",
     featured: true,
     problem:
-      "Amentara sells functional mushroom supplements, nocturnal wellness gummies, and daily calm formulas in the CBD space, one of the hardest categories to advertise on Meta. Ads were getting rejected, the account was at constant risk of restrictions, and there was no reliable way to scale while staying compliant with Meta's policies.",
+      "The brand sells functional mushroom supplements, nocturnal wellness gummies, and daily calm formulas in the CBD space, one of the most strictly regulated categories on Meta. Ads were frequently rejected, the account faced constant restriction risks, and there was no reliable blueprint to scale while staying compliant with Meta's ad policies.",
     steps: [
-      "Developed a fully compliant creative and landing page strategy, positioning products around evening relaxation routines and daily wellness benefits within Meta's policy lines.",
-      "Set up resilient tracking with Pixel and Conversions API so optimization signals stayed strong.",
-      "Tested angles and creatives systematically to find hooks that converted without triggering policy flags.",
-      "Scaled budget gradually month over month, protecting both the account's standing and its return.",
+      "Developed a fully compliant creative and landing page framework, positioning products around evening relaxation routines and daily wellness benefits within strict policy guidelines.",
+      "Implemented resilient tracking via Meta Pixel and Conversions API to maintain strong optimization signals despite privacy updates.",
+      "Tested ad angles and UGC creatives systematically to discover high-converting hooks that avoided triggering automated policy flags.",
+      "Scaled ad spend gradually month over month, safeguarding the account's compliance standing while maximizing return on investment.",
     ],
     outcome:
-      "The account now holds a consistent 4.2x monthly ROAS and generates around $60K per month in revenue from Meta Ads, and it is still scaling with spend increasing every month.",
+      "The account maintains a consistent 4.2x monthly ROAS and generates approximately $60K per month in revenue from Meta Ads, continuing to scale safely month over month.",
     metrics: [
       { label: "Monthly ROAS", value: "4.2x" },
       { label: "Monthly Revenue", value: "$60K" },
@@ -112,24 +107,24 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: "toys-ecommerce",
-    client: "Biggo Blocks",
+    client: "Toys & Educational Products Brand",
     industry: "Toys & Educational Products",
     platform: "Google Ads",
     description:
-      "Post-holiday Google Ads turnaround for giant jumbo building blocks store: 544% ROAS in January, the hardest month in the category.",
+      "Post-holiday Google Ads turnaround for a giant jumbo building blocks store (undisclosed per NDA): 544% ROAS in January, the toughest month in the category.",
     image: googleToys,
-    logo: biggoBlocksLogo,
+    logo: null,
     gradient: "from-blue-500 to-cyan-500",
     featured: true,
     problem:
-      "January is brutal for toy brands: demand crashes after the holidays while leftover campaign structures keep spending like it's December. This jumbo building blocks store needed to stay profitable through the slump instead of pausing ads entirely.",
+      "January is notoriously tough for toy brands: consumer demand slumps after the holidays while leftover campaign structures continue spending like it's peak December. This jumbo building blocks store needed to maintain profitability through the post-holiday slump instead of pausing ad campaigns.",
     steps: [
-      "Cleaned up the product feed and restructured shopping campaigns around top-selling jumbo brick sets and STEM educational packs.",
-      "Cut wasted spend aggressively with negative keywords and device/geo adjustments.",
-      "Shifted budget toward remarketing and high-intent search terms like 'jumbo building blocks' rather than broad prospecting.",
+      "Optimized the Google Merchant Center product feed and restructured Performance Max & Shopping campaigns around top-selling jumbo brick sets and STEM educational packs.",
+      "Cut wasted spend aggressively using negative keyword lists, search intent filters, and device/geographic adjustments.",
+      "Reallocated budget toward high-intent branded search terms and dynamic remarketing rather than broad cold prospecting.",
     ],
     outcome:
-      "The account delivered a 544% ROAS in January 2026 with $3.62K in conversion value from 817 clicks and 70.1K impressions: profitable growth in the category's weakest month.",
+      "The account delivered a 544% ROAS in January 2026 with $3.62K in conversion value from 817 clicks and 70.1K impressions: profitable growth during the industry's quietest month.",
     metrics: [
       { label: "ROAS", value: "544%" },
       { label: "Conv. Value", value: "$3.6K" },
@@ -138,7 +133,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: "utility-sinks",
-    client: "Home Improvement Store",
+    client: "Home Improvement Store (Undisclosed)",
     industry: "Utility Sinks & Home Fixtures",
     platform: "Google Ads",
     description:
@@ -164,7 +159,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: "aesthetic-laser",
-    client: "Aesthetic & Laser Center",
+    client: "Aesthetic & Laser Center (Undisclosed)",
     industry: "Healthcare & Med Spa",
     platform: "Google Ads",
     description:
@@ -190,7 +185,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: "antiques",
-    client: "Antiques Dealer",
+    client: "Antiques & Jewelry Dealer (Undisclosed)",
     industry: "Jewelry & Antiques",
     platform: "Google Ads",
     description:
@@ -216,7 +211,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: "tile-restoration",
-    client: "Tile Restoration Company",
+    client: "Tile Restoration Services (Undisclosed)",
     industry: "Home Services",
     platform: "Google Ads",
     description:
@@ -242,7 +237,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: "rehab-health",
-    client: "Rehab & Health Provider",
+    client: "Rehab & Health Provider (Undisclosed)",
     industry: "Healthcare & Hospitals",
     platform: "Google Ads",
     description:
@@ -269,3 +264,4 @@ export const caseStudies: CaseStudy[] = [
 ];
 
 export const featuredCaseStudies = caseStudies.filter((c) => c.featured);
+

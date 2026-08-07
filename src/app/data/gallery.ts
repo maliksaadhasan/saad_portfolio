@@ -61,42 +61,42 @@ export interface GalleryFolder {
 export type GalleryEntry = GalleryItem | GalleryFolder;
 
 export const milkForBubsFolder: GalleryFolder = {
-  id: "milk-for-bubs-folder",
+  id: "mother-baby-care-folder",
   isFolder: true,
-  title: "Milk for Bubs: Full Year Meta Ads Performance Folder",
-  subtitle: "Complete Monthly Ad Manager Screenshots (2025 to 2026)",
+  title: "Mother & Baby Care DTC Brand: Full Year Meta Ads Performance Folder",
+  subtitle: "Complete Monthly Ad Manager Screenshots (2025 to 2026 - Brand Protected per NDA)",
   roas: "9.04x Yearly ROAS ($431K+ Revenue, 5,357 Purchases)",
   platform: "Meta Ads",
   coverImage: milkforbubs2025,
   items: [
-    { id: "mfb-2025", src: milkforbubs2025, caption: "Milk for Bubs: Full Year 2025 Summary (9.04x ROAS, $431K+ Revenue, 5,357 Purchases)", platform: "Meta Ads" },
-    { id: "mfb-max", src: milkforbubsMax, caption: "Milk for Bubs: Account Lifetime Cumulative Results", platform: "Meta Ads" },
-    { id: "mfb-jan25", src: mfbJan2025, caption: "Milk for Bubs: January 2025 Monthly Meta Ads Manager Results", platform: "Meta Ads" },
-    { id: "mfb-feb25", src: mfbFeb2025, caption: "Milk for Bubs: February 2025 Monthly Meta Ads Manager Results", platform: "Meta Ads" },
-    { id: "mfb-mar25", src: mfbMar2025, caption: "Milk for Bubs: March 2025 Monthly Meta Ads Manager Results", platform: "Meta Ads" },
-    { id: "mfb-apr25", src: mfbApr2025, caption: "Milk for Bubs: April 2025 Monthly Meta Ads Manager Results", platform: "Meta Ads" },
-    { id: "mfb-may25", src: mfbMay2025, caption: "Milk for Bubs: May 2025 Monthly Meta Ads Manager Results", platform: "Meta Ads" },
-    { id: "mfb-jun25", src: mfbJun2025, caption: "Milk for Bubs: June 2025 Monthly Meta Ads Manager Results", platform: "Meta Ads" },
-    { id: "mfb-jul25", src: mfbJul2025, caption: "Milk for Bubs: July 2025 Monthly Meta Ads Manager Results", platform: "Meta Ads" },
-    { id: "mfb-aug25", src: mfbAug2025, caption: "Milk for Bubs: August 2025 Monthly Meta Ads Manager Results", platform: "Meta Ads" },
-    { id: "mfb-sep25", src: mfbSep2025, caption: "Milk for Bubs: September 2025 Monthly Meta Ads Manager Results", platform: "Meta Ads" },
-    { id: "mfb-oct25", src: mfbOct2025, caption: "Milk for Bubs: October 2025 Monthly Meta Ads Manager Results", platform: "Meta Ads" },
-    { id: "mfb-nov25", src: mfbNov2025, caption: "Milk for Bubs: November 2025 Monthly Meta Ads Manager Results", platform: "Meta Ads" },
-    { id: "mfb-dec25", src: mfbDec2025, caption: "Milk for Bubs: December 2025 Monthly Meta Ads Manager Results", platform: "Meta Ads" },
-    { id: "mfb-jan26", src: mfbJan2026, caption: "Milk for Bubs: January 2026 Monthly Meta Ads Manager Results", platform: "Meta Ads" },
-    { id: "mfb-feb26", src: mfbFeb2026, caption: "Milk for Bubs: February 2026 Monthly Meta Ads Manager Results", platform: "Meta Ads" },
-    { id: "mfb-mar26", src: mfbMar2026, caption: "Milk for Bubs: March 2026 Monthly Meta Ads Manager Results", platform: "Meta Ads" },
+    { id: "mfb-2025", src: milkforbubs2025, caption: "Mother & Baby Care Brand: Full Year 2025 Summary (9.04x ROAS, $431K+ Revenue, 5,357 Purchases)", platform: "Meta Ads" },
+    { id: "mfb-max", src: milkforbubsMax, caption: "Mother & Baby Care Brand: Account Lifetime Cumulative Results", platform: "Meta Ads" },
+    { id: "mfb-jan25", src: mfbJan2025, caption: "Mother & Baby Care Brand: January 2025 Monthly Meta Ads Manager Results", platform: "Meta Ads" },
+    { id: "mfb-feb25", src: mfbFeb2025, caption: "Mother & Baby Care Brand: February 2025 Monthly Meta Ads Manager Results", platform: "Meta Ads" },
+    { id: "mfb-mar25", src: mfbMar2025, caption: "Mother & Baby Care Brand: March 2025 Monthly Meta Ads Manager Results", platform: "Meta Ads" },
+    { id: "mfb-apr25", src: mfbApr2025, caption: "Mother & Baby Care Brand: April 2025 Monthly Meta Ads Manager Results", platform: "Meta Ads" },
+    { id: "mfb-may25", src: mfbMay2025, caption: "Mother & Baby Care Brand: May 2025 Monthly Meta Ads Manager Results", platform: "Meta Ads" },
+    { id: "mfb-jun25", src: mfbJun2025, caption: "Mother & Baby Care Brand: June 2025 Monthly Meta Ads Manager Results", platform: "Meta Ads" },
+    { id: "mfb-jul25", src: mfbJul2025, caption: "Mother & Baby Care Brand: July 2025 Monthly Meta Ads Manager Results", platform: "Meta Ads" },
+    { id: "mfb-aug25", src: mfbAug2025, caption: "Mother & Baby Care Brand: August 2025 Monthly Meta Ads Manager Results", platform: "Meta Ads" },
+    { id: "mfb-sep25", src: mfbSep2025, caption: "Mother & Baby Care Brand: September 2025 Monthly Meta Ads Manager Results", platform: "Meta Ads" },
+    { id: "mfb-oct25", src: mfbOct2025, caption: "Mother & Baby Care Brand: October 2025 Monthly Meta Ads Manager Results", platform: "Meta Ads" },
+    { id: "mfb-nov25", src: mfbNov2025, caption: "Mother & Baby Care Brand: November 2025 Monthly Meta Ads Manager Results", platform: "Meta Ads" },
+    { id: "mfb-dec25", src: mfbDec2025, caption: "Mother & Baby Care Brand: December 2025 Monthly Meta Ads Manager Results", platform: "Meta Ads" },
+    { id: "mfb-jan26", src: mfbJan2026, caption: "Mother & Baby Care Brand: January 2026 Monthly Meta Ads Manager Results", platform: "Meta Ads" },
+    { id: "mfb-feb26", src: mfbFeb2026, caption: "Mother & Baby Care Brand: February 2026 Monthly Meta Ads Manager Results", platform: "Meta Ads" },
+    { id: "mfb-mar26", src: mfbMar2026, caption: "Mother & Baby Care Brand: March 2026 Monthly Meta Ads Manager Results", platform: "Meta Ads" },
   ],
 };
 
 export const galleryEntries: GalleryEntry[] = [
-  // Milk for Bubs dedicated folder card
+  // Mother & Baby Care dedicated folder card
   milkForBubsFolder,
 
-  // Pipe Decor Meta Ads
-  { id: "pd-2025", src: pipedecor2025, caption: "Pipe Decor: 2025 Results ($417K purchase value, 2,408 purchases)", platform: "Meta Ads" },
-  { id: "pd-full", src: pipedecor2025Full, caption: "Pipe Decor: 2025 vs 2024 (+131% spend scaled profitably)", platform: "Meta Ads" },
-  { id: "pd-feb26", src: pipedecorFeb2026, caption: "Pipe Decor: February 2026 (4.78x average ROAS)", platform: "Meta Ads" },
+  // Industrial Furniture Brand Meta Ads
+  { id: "pd-2025", src: pipedecor2025, caption: "Industrial Furniture Brand: 2025 Results ($417K purchase value, 2,408 purchases)", platform: "Meta Ads" },
+  { id: "pd-full", src: pipedecor2025Full, caption: "Industrial Furniture Brand: 2025 vs 2024 (+131% spend scaled profitably)", platform: "Meta Ads" },
+  { id: "pd-feb26", src: pipedecorFeb2026, caption: "Industrial Furniture Brand: February 2026 (4.78x average ROAS)", platform: "Meta Ads" },
 
   // Meta Ads Campaign Screenshots
   { id: "meta-1", src: metaResults1, caption: "Meta Ads: Campaign Results Overview", platform: "Meta Ads" },
@@ -107,10 +107,10 @@ export const galleryEntries: GalleryEntry[] = [
   { id: "meta-6", src: metaResults6, caption: "Meta Ads: Conversion Attribution Metrics", platform: "Meta Ads" },
 
   // Google Ads Screenshots
-  { id: "g-toys-jan", src: googleToysJan2026, caption: "Biggo Blocks E-commerce: January 2026 (544% ROAS)", platform: "Google Ads" },
-  { id: "g-toys-apr", src: googleToysApril, caption: "Biggo Blocks E-commerce: April Shopping Campaign Results", platform: "Google Ads" },
-  { id: "g-toys-may", src: googleToysMay, caption: "Biggo Blocks E-commerce: May Campaign Scale Results", platform: "Google Ads" },
-  { id: "g-kids-toys", src: googleKidsToys, caption: "Kids Building Blocks E-commerce: Shopping Campaigns", platform: "Google Ads" },
+  { id: "g-toys-jan", src: googleToysJan2026, caption: "Toys & Educational Products Store: January 2026 (544% ROAS)", platform: "Google Ads" },
+  { id: "g-toys-apr", src: googleToysApril, caption: "Toys & Educational Products Store: April Shopping Campaign Results", platform: "Google Ads" },
+  { id: "g-toys-may", src: googleToysMay, caption: "Toys & Educational Products Store: May Campaign Scale Results", platform: "Google Ads" },
+  { id: "g-kids-toys", src: googleKidsToys, caption: "Jumbo Building Blocks E-commerce: Shopping Campaigns", platform: "Google Ads" },
   { id: "g-sinks", src: googleSinks, caption: "Utility Sinks & Home Fixtures: 380% ROAS", platform: "Google Ads" },
   { id: "g-aesthetic", src: googleAesthetic, caption: "Aesthetic & Laser Center: 15 patient leads at ~$30 each", platform: "Google Ads" },
   { id: "g-antiques", src: googleAntiques, caption: "Antiques Dealer: High-Intent Lead Generation", platform: "Google Ads" },
