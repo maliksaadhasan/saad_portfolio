@@ -12,9 +12,17 @@ import TechnologiesSection from "@/app/components/TechnologiesSection";
 import CTASection from "@/app/components/CTASection";
 import ContactSection from "@/app/components/ContactSection";
 import WhatsAppButton from "@/app/components/WhatsAppButton";
+import Footer from "@/app/components/Footer";
+import { usePageMeta } from "@/app/hooks/usePageMeta";
 
 export default function Home() {
   const location = useLocation();
+
+  usePageMeta({
+    title: "Saad Hasan | Performance Marketer | Meta & Google Ads Specialist",
+    description: "Saad Hasan is a performance marketer specializing in Meta Ads, Google Ads, Klaviyo email marketing, and PPC. $15M+ revenue generated. 9.04x best yearly ROAS. Book a free strategy call today.",
+    canonical: "https://saadhasan.me/",
+  });
 
   useEffect(() => {
     const scrollTo = (location.state as { scrollTo?: string } | null)?.scrollTo;
@@ -28,16 +36,19 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-black text-white">
       <Navigation />
-      <HeroSection />
-      <AboutSection />
-      <ServicesSection />
-      <WhyChooseUsSection />
-      <CaseStudiesSection />
-      <ProcessSection />
-      <TestimonialsSection />
-      <TechnologiesSection />
-      <CTASection />
-      <ContactSection />
+      <main>
+        <HeroSection />
+        <AboutSection />
+        <ServicesSection />
+        <WhyChooseUsSection />
+        <CaseStudiesSection />
+        <ProcessSection />
+        <TestimonialsSection />
+        <TechnologiesSection />
+        <CTASection />
+        <ContactSection />
+      </main>
+      <Footer />
       <WhatsAppButton />
     </div>
   );

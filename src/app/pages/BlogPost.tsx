@@ -1,10 +1,11 @@
 import { useParams, Link } from "react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { motion, useScroll, useSpring } from "motion/react";
 import { ArrowLeft, ArrowRight, Clock, Calendar, Bookmark, Sparkles, CheckCircle2, ChevronRight } from "lucide-react";
 import { blogPosts } from "@/app/data/blogPosts";
 import { LINKS } from "@/app/data/site";
 import WhatsAppButton from "@/app/components/WhatsAppButton";
+import { usePageMeta } from "@/app/hooks/usePageMeta";
 
 export default function BlogPost() {
   const { slug } = useParams();
@@ -17,6 +18,44 @@ export default function BlogPost() {
   });
 
   const [activeHeading, setActiveHeading] = useState<string>("");
+
+  const jsonLd = useMemo(() => {
+    if (!post) return undefined;
+    return {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": post.title,
+      "description": post.excerpt,
+      "datePublished": post.date,
+      "author": {
+        "@type": "Person",
+        "name": "Saad Hasan",
+        "url": "https://saadhasan.me"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Saad Hasan"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `https://saadhasan.me/blog/${slug}`
+      },
+      "articleSection": post.category,
+      "wordCount": post.content.join(" ").split(/\s+/).length
+    };
+  }, [post, slug]);
+
+  usePageMeta({
+    title: post
+      ? `${post.title} | Saad Hasan`
+      : "Post Not Found | Saad Hasan",
+    description: post
+      ? post.excerpt
+      : "The requested blog post could not be found.",
+    canonical: `https://saadhasan.me/blog/${slug}`,
+    ogType: "article",
+    jsonLd: jsonLd,
+  });
 
   useEffect(() => {
     window.scrollTo(0, 0);

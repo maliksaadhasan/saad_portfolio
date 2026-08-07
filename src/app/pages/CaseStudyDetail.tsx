@@ -5,10 +5,22 @@ import { ArrowLeft, ArrowRight, AlertTriangle, ListChecks, TrendingUp } from "lu
 import { caseStudies } from "@/app/data/caseStudies";
 import { LINKS } from "@/app/data/site";
 import WhatsAppButton from "@/app/components/WhatsAppButton";
+import { usePageMeta } from "@/app/hooks/usePageMeta";
 
 export default function CaseStudyDetail() {
   const { id } = useParams();
   const caseStudy = caseStudies.find((cs) => cs.id === id);
+
+  usePageMeta({
+    title: caseStudy
+      ? `${caseStudy.industry} Case Study | Saad Hasan`
+      : "Case Study Not Found | Saad Hasan",
+    description: caseStudy
+      ? `${caseStudy.description} See the full results and strategy breakdown.`
+      : "The requested case study could not be found.",
+    canonical: `https://saadhasan.me/case-study/${id}`,
+    ogType: "article",
+  });
 
   useEffect(() => {
     window.scrollTo(0, 0);

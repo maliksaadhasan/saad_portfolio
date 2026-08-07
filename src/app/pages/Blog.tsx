@@ -4,8 +4,15 @@ import { motion } from "motion/react";
 import { ArrowLeft, ArrowRight, Clock, BookOpen } from "lucide-react";
 import { blogPosts } from "@/app/data/blogPosts";
 import WhatsAppButton from "@/app/components/WhatsAppButton";
+import { usePageMeta } from "@/app/hooks/usePageMeta";
 
 export default function Blog() {
+  usePageMeta({
+    title: "Blog | Saad Hasan - Meta Ads, Google Ads & Klaviyo Playbooks",
+    description: "Deep-dive playbooks, tracking frameworks, and battle-tested strategies from real Meta Ads, Google Ads, and Klaviyo email marketing accounts. Written by performance marketer Saad Hasan.",
+    canonical: "https://saadhasan.me/blog",
+  });
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
