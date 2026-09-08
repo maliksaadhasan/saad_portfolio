@@ -51,7 +51,9 @@ export default function HeroSection() {
         >
           From pixel integration to optimization and scaling, I run
           data-driven Meta & Google Ads campaigns for e-commerce and
-          lead-gen brands.
+          lead-gen brands.{" "}
+          {/* The break is hidden on mobile, so the sentences need a space of
+              their own or they run together as "brands.$15M+". */}
           <br className="hidden sm:inline" />
           <span className="text-white font-medium">$15M+ in revenue generated for my clients.</span>
         </motion.p>

@@ -115,7 +115,10 @@ function RootLayoutInner() {
 
   return (
     <>
-      <Outlet />
+      {/* Reserves room for the mobile CTA bar so it never covers page content. */}
+      <div className="pb-24 md:pb-0">
+        <Outlet />
+      </div>
       <FloatingActions />
     </>
   );

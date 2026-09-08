@@ -15,10 +15,11 @@ function WhatsAppIcon({ className }: { className?: string }) {
 }
 
 /**
- * Persistent WhatsApp CTA. The label is always visible - a bare icon relies on
- * the visitor hovering to learn what it does, which never happens on touch.
+ * WhatsApp CTA. Carries a permanent label - a bare icon only explains itself
+ * on hover, which touch devices never get. Positioning is left to the caller
+ * so the same button works in the mobile bar and the desktop stack.
  */
-export default function WhatsAppButton() {
+export default function WhatsAppButton({ className = "" }: { className?: string }) {
   return (
     <motion.a
       href={LINKS.whatsapp}
@@ -26,11 +27,11 @@ export default function WhatsAppButton() {
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
       data-track="whatsapp_floating"
-      initial={{ opacity: 0, y: 12 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.5, type: "spring", stiffness: 260, damping: 22 }}
-      whileHover={{ scale: 1.04 }}
-      className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-[60] h-12 pl-4 pr-5 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center gap-2.5 text-white shadow-lg shadow-green-500/40"
+      whileHover={{ scale: 1.03 }}
+      className={
+        "h-12 px-4 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center gap-2 text-white shadow-lg shadow-green-500/30 " +
+        className
+      }
     >
       <WhatsAppIcon className="w-5 h-5 shrink-0" />
       <span className="text-sm font-medium whitespace-nowrap">WhatsApp</span>
