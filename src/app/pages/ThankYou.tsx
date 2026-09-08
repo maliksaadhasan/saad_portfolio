@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Link, useLocation } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { motion } from "motion/react";
 import { CheckCircle2, ArrowLeft, MessageCircle, CalendarCheck } from "lucide-react";
 import Navigation from "@/app/components/Navigation";
@@ -17,6 +17,7 @@ interface ThankYouState {
 
 export default function ThankYou() {
   const location = useLocation();
+  const navigate = useNavigate();
   const state = (location.state || null) as ThankYouState | null;
   const firedRef = useRef(false);
 
@@ -57,7 +58,12 @@ export default function ThankYou() {
       value: 1,
       currency: "USD",
     });
-  }, [state]);
+
+    // Router state is kept in history.state, which survives a reload. Drop it
+    // once the conversion is recorded so refreshing this page cannot fire a
+    // second one.
+    navigate("/thank-you", { replace: true, state: null });
+  }, [state, navigate]);
 
   return (
     <div className="min-h-screen bg-black text-white">
