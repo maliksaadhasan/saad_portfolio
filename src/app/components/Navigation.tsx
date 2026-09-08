@@ -1,14 +1,12 @@
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { Menu, X } from "lucide-react";
-import { Link, useLocation, useNavigate } from "react-router";
+import { Link } from "react-router";
 import { useLeadForm } from "@/app/components/LeadFormProvider";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation();
-  const navigate = useNavigate();
   const { open: openLeadForm } = useLeadForm();
 
   useEffect(() => {
@@ -19,23 +17,13 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
-    setIsMobileMenuOpen(false);
-    if (location.pathname !== "/") {
-      navigate("/", { state: { scrollTo: id } });
-      return;
-    }
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
+  // Every destination is a real URL, so each can be shared, indexed, and used
+  // as an ad landing page instead of scrolling the homepage.
   const sectionItems = [
-    { label: "About", id: "about" },
-    { label: "Services", id: "services" },
-    { label: "Work", id: "case-studies" },
-    { label: "Process", id: "process" },
+    { label: "About", to: "/about" },
+    { label: "Services", to: "/services" },
+    { label: "Work", to: "/case-studies" },
+    { label: "Process", to: "/process" },
   ];
 
   const pageItems = [
@@ -70,17 +58,20 @@ export default function Navigation() {
 
         <div className="hidden md:flex items-center gap-8">
           {sectionItems.map((item, index) => (
-            <motion.button
-              key={item.id}
+            <motion.div
+              key={item.to}
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 * index }}
-              onClick={() => scrollToSection(item.id)}
-              className="text-white/80 hover:text-white transition-colors relative group text-sm font-medium"
             >
-              {item.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-500 group-hover:w-full transition-all duration-300" />
-            </motion.button>
+              <Link
+                to={item.to}
+                className="text-white/80 hover:text-white transition-colors relative group text-sm font-medium"
+              >
+                {item.label}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-500 group-hover:w-full transition-all duration-300" />
+              </Link>
+            </motion.div>
           ))}
           {pageItems.map((item, index) => (
             <motion.div
@@ -127,13 +118,14 @@ export default function Navigation() {
         >
           <div className="px-6 py-6 flex flex-col gap-4">
             {sectionItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
+              <Link
+                key={item.to}
+                to={item.to}
+                onClick={() => setIsMobileMenuOpen(false)}
                 className="text-white/90 hover:text-white transition-colors text-left font-medium text-base py-1"
               >
                 {item.label}
-              </button>
+              </Link>
             ))}
             {pageItems.map((item) => (
               <Link

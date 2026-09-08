@@ -5,6 +5,7 @@ import { Mail, Send, Linkedin, MessageCircle, CalendarCheck, CheckCircle2, Loade
 import { Link, useNavigate } from "react-router";
 import { LINKS } from "@/app/data/site";
 import { pushEvent } from "@/app/lib/analytics";
+import { submitLead } from "@/app/lib/submitLead";
 
 function AnimatedGlobe() {
   return (
@@ -106,19 +107,7 @@ export default function ContactSection() {
     e.preventDefault();
     setStatus("sending");
     try {
-      const res = await fetch(`https://formsubmit.co/ajax/${LINKS.email}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          _subject: `New portfolio inquiry from ${formData.name}`,
-          _template: "table",
-          ...formData,
-        }),
-      });
-      if (!res.ok) throw new Error("Request failed");
+      await submitLead(formData, "contact_section");
 
       const budget = formData.budget || "not_specified";
       const hasPhone = Boolean(formData.phone);

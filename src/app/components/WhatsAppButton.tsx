@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 import { LINKS } from "@/app/data/site";
 
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -15,45 +14,26 @@ function WhatsAppIcon({ className }: { className?: string }) {
   );
 }
 
+/**
+ * Persistent WhatsApp CTA. The label is always visible - a bare icon relies on
+ * the visitor hovering to learn what it does, which never happens on touch.
+ */
 export default function WhatsAppButton() {
-  const [hovered, setHovered] = useState(false);
-
   return (
-    <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-[60] flex items-center gap-3">
-      <AnimatePresence>
-        {hovered && (
-          <motion.div
-            initial={{ opacity: 0, x: 10 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 10 }}
-            transition={{ duration: 0.2 }}
-            className="px-4 py-3 bg-black/90 backdrop-blur-xl border border-green-500/30 rounded-2xl rounded-br-sm text-sm text-white shadow-xl max-w-[220px]"
-          >
-            <span className="block font-medium text-green-400 mb-0.5">
-              Contact now
-            </span>
-            Any queries? Contact us on WhatsApp asap.
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      <motion.a
-        href={LINKS.whatsapp}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Contact on WhatsApp"
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ delay: 0.5, type: "spring", stiffness: 260, damping: 20 }}
-        whileHover={{ scale: 1.1 }}
-        className="relative w-14 h-14 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center text-white shadow-lg shadow-green-500/40"
-      >
-        {/* Pulse ring */}
-        <span className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-30" />
-        <WhatsAppIcon className="relative w-7 h-7" />
-      </motion.a>
-    </div>
+    <motion.a
+      href={LINKS.whatsapp}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat on WhatsApp"
+      data-track="whatsapp_floating"
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.5, type: "spring", stiffness: 260, damping: 22 }}
+      whileHover={{ scale: 1.04 }}
+      className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-[60] h-12 pl-4 pr-5 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center gap-2.5 text-white shadow-lg shadow-green-500/40"
+    >
+      <WhatsAppIcon className="w-5 h-5 shrink-0" />
+      <span className="text-sm font-medium whitespace-nowrap">WhatsApp</span>
+    </motion.a>
   );
 }
