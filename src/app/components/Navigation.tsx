@@ -29,6 +29,7 @@ export default function Navigation() {
   const pageItems = [
     { label: "Work Gallery", to: "/gallery" },
     { label: "Blog", to: "/blog" },
+    { label: "FAQ", to: "/faq" },
   ];
 
   return (

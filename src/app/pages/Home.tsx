@@ -18,8 +18,8 @@ export default function Home() {
   const location = useLocation();
 
   usePageMeta({
-    title: "Saad Hasan | Performance Marketer | Meta & Google Ads Specialist",
-    description: "Saad Hasan is a performance marketer specializing in Meta Ads, Google Ads, Klaviyo email marketing, and PPC. $15M+ revenue generated. 9.04x best yearly ROAS. Book a free strategy call today.",
+    title: "Saad Hasan | Meta & Google Ads Performance Marketer",
+    description: "Performance marketer for Meta Ads, Google Ads and Klaviyo. $15M+ tracked revenue, 9.04x best yearly ROAS. Book a free strategy call.",
     canonical: "https://www.maliksaadhasan.com/",
   });
 

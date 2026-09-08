@@ -9,6 +9,7 @@ import BlogPost from "@/app/pages/BlogPost";
 import About from "@/app/pages/About";
 import Services from "@/app/pages/Services";
 import Process from "@/app/pages/Process";
+import FAQ from "@/app/pages/FAQ";
 import ThankYou from "@/app/pages/ThankYou";
 
 // Every page keeps its own URL. RootLayout is a pathless layout route: it adds
@@ -27,6 +28,7 @@ export const router = createBrowserRouter([
       { path: "/gallery", Component: WorkGallery },
       { path: "/blog", Component: Blog },
       { path: "/blog/:slug", Component: BlogPost },
+      { path: "/faq", Component: FAQ },
       { path: "/thank-you", Component: ThankYou },
     ],
   },

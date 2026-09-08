@@ -32,6 +32,14 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- FAQ -->
+  <url>
+    <loc>https://www.maliksaadhasan.com/faq</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Case Studies Listing -->
   <url>
     <loc>https://www.maliksaadhasan.com/case-studies</loc>
@@ -146,6 +154,20 @@
   <url>
     <loc>https://www.maliksaadhasan.com/blog/creative-testing-framework-winning-ads</loc>
     <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.maliksaadhasan.com/blog/vertical-horizontal-scaling-paid-ads</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.maliksaadhasan.com/blog/campaign-management-system-paid-ads</loc>
+    <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
