@@ -43,7 +43,7 @@ function setJsonLd(data: Record<string, unknown>) {
   el.textContent = JSON.stringify(data);
 }
 
-const BASE_URL = "https://saadhasan.me";
+const BASE_URL = "https://www.maliksaadhasan.com";
 const DEFAULT_OG_IMAGE = `${BASE_URL}/og-image.png`;
 
 export function usePageMeta(meta: PageMeta) {

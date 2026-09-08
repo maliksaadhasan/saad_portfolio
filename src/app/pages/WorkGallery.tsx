@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "motion/react";
 import { ArrowLeft, ArrowRight, X, Folder, Layers, Sparkles } from "lucide-react";
 import { galleryEntries, GalleryFolder, GalleryItem, GalleryEntry } from "@/app/data/gallery";
 import { LINKS } from "@/app/data/site";
-import WhatsAppButton from "@/app/components/WhatsAppButton";
 import { usePageMeta } from "@/app/hooks/usePageMeta";
 
 const filters = ["All", "Meta Ads", "Google Ads"] as const;
@@ -17,7 +16,7 @@ export default function WorkGallery() {
   usePageMeta({
     title: "Work Gallery | Saad Hasan - Ad Campaign Screenshots & Results",
     description: "Browse real ad account dashboards, campaign screenshots, and performance metrics from Meta Ads and Google Ads campaigns managed by Saad Hasan.",
-    canonical: "https://saadhasan.me/gallery",
+    canonical: "https://www.maliksaadhasan.com/gallery",
   });
 
   useEffect(() => {
@@ -300,7 +299,6 @@ export default function WorkGallery() {
         )}
       </AnimatePresence>
 
-      <WhatsAppButton />
     </div>
   );
 }

@@ -4,7 +4,6 @@ import { motion } from "motion/react";
 import { ArrowLeft, ArrowRight, AlertTriangle, ListChecks, TrendingUp } from "lucide-react";
 import { caseStudies } from "@/app/data/caseStudies";
 import { LINKS } from "@/app/data/site";
-import WhatsAppButton from "@/app/components/WhatsAppButton";
 import { usePageMeta } from "@/app/hooks/usePageMeta";
 
 export default function CaseStudyDetail() {
@@ -18,7 +17,7 @@ export default function CaseStudyDetail() {
     description: caseStudy
       ? `${caseStudy.description} See the full results and strategy breakdown.`
       : "The requested case study could not be found.",
-    canonical: `https://saadhasan.me/case-study/${id}`,
+    canonical: `https://www.maliksaadhasan.com/case-study/${id}`,
     ogType: "article",
   });
 
@@ -239,7 +238,6 @@ export default function CaseStudyDetail() {
           </div>
         </div>
       </main>
-      <WhatsAppButton />
     </div>
   );
 }

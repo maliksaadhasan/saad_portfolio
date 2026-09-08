@@ -4,7 +4,6 @@ import { motion, useScroll, useSpring } from "motion/react";
 import { ArrowLeft, ArrowRight, Clock, Calendar, Bookmark, Sparkles, CheckCircle2, ChevronRight } from "lucide-react";
 import { blogPosts } from "@/app/data/blogPosts";
 import { LINKS } from "@/app/data/site";
-import WhatsAppButton from "@/app/components/WhatsAppButton";
 import { usePageMeta } from "@/app/hooks/usePageMeta";
 
 export default function BlogPost() {
@@ -30,7 +29,7 @@ export default function BlogPost() {
       "author": {
         "@type": "Person",
         "name": "Saad Hasan",
-        "url": "https://saadhasan.me"
+        "url": "https://www.maliksaadhasan.com"
       },
       "publisher": {
         "@type": "Person",
@@ -38,7 +37,7 @@ export default function BlogPost() {
       },
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": `https://saadhasan.me/blog/${slug}`
+        "@id": `https://www.maliksaadhasan.com/blog/${slug}`
       },
       "articleSection": post.category,
       "wordCount": post.content.join(" ").split(/\s+/).length
@@ -52,7 +51,7 @@ export default function BlogPost() {
     description: post
       ? post.excerpt
       : "The requested blog post could not be found.",
-    canonical: `https://saadhasan.me/blog/${slug}`,
+    canonical: `https://www.maliksaadhasan.com/blog/${slug}`,
     ogType: "article",
     jsonLd: jsonLd,
   });
@@ -306,7 +305,6 @@ export default function BlogPost() {
         </article>
       </main>
 
-      <WhatsAppButton />
     </div>
   );
 }

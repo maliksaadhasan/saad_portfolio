@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://saadhasan.me/sitemap.xml
+Sitemap: https://www.maliksaadhasan.com/sitemap.xml

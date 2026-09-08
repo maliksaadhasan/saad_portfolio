@@ -2,8 +2,9 @@ import { motion } from "motion/react";
 import { useInView } from "motion/react";
 import { useRef, useState } from "react";
 import { Mail, Send, Linkedin, MessageCircle, CalendarCheck, CheckCircle2, Loader2 } from "lucide-react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { LINKS } from "@/app/data/site";
+import { pushEvent } from "@/app/lib/analytics";
 
 function AnimatedGlobe() {
   return (
@@ -90,6 +91,8 @@ export default function ContactSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
   const [status, setStatus] = useState<FormStatus>("idle");
+  const startedRef = useRef(false);
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -116,7 +119,12 @@ export default function ContactSection() {
         }),
       });
       if (!res.ok) throw new Error("Request failed");
-      setStatus("success");
+
+      const budget = formData.budget || "not_specified";
+      const hasPhone = Boolean(formData.phone);
+
+      setStatus("idle");
+      startedRef.current = false;
       setFormData({
         name: "",
         email: "",
@@ -125,14 +133,36 @@ export default function ContactSection() {
         message: "",
         budget: "",
       });
+
+      // Same destination as the modal. The conversion itself is recorded on
+      // /thank-you, guarded by this navigation state.
+      navigate("/thank-you", {
+        state: {
+          fromForm: true,
+          formSource: "contact_section",
+          budget,
+          hasPhone,
+        },
+      });
     } catch {
       setStatus("error");
+      pushEvent("form_error", {
+        form_name: "lead_form",
+        form_source: "contact_section",
+      });
     }
   };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
+    if (!startedRef.current) {
+      startedRef.current = true;
+      pushEvent("form_start", {
+        form_name: "lead_form",
+        form_source: "contact_section",
+      });
+    }
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -343,7 +373,7 @@ export default function ContactSection() {
                   <option value="" className="bg-gray-900">
                     Select your monthly ad budget
                   </option>
-                  <option value="<3k" className="bg-gray-900">
+                  <option value="lt-3k" className="bg-gray-900">
                     Less than $3,000
                   </option>
                   <option value="3k-10k" className="bg-gray-900">
@@ -352,7 +382,7 @@ export default function ContactSection() {
                   <option value="10k-50k" className="bg-gray-900">
                     $10,000 to $50,000
                   </option>
-                  <option value=">50k" className="bg-gray-900">
+                  <option value="gt-50k" className="bg-gray-900">
                     More than $50,000
                   </option>
                 </select>

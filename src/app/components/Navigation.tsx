@@ -2,12 +2,14 @@ import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router";
+import { useLeadForm } from "@/app/components/LeadFormProvider";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const { open: openLeadForm } = useLeadForm();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -100,7 +102,8 @@ export default function Navigation() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.6 }}
-            onClick={() => scrollToSection("contact")}
+            onClick={() => openLeadForm("nav_desktop")}
+            data-track="open_lead_form_nav"
             className="px-6 py-2.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white font-medium hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300 text-sm"
           >
             Let's Talk
@@ -143,7 +146,11 @@ export default function Navigation() {
               </Link>
             ))}
             <button
-              onClick={() => scrollToSection("contact")}
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                openLeadForm("nav_mobile");
+              }}
+              data-track="open_lead_form_nav"
               className="mt-2 w-full py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white font-medium text-center"
             >
               Let's Talk

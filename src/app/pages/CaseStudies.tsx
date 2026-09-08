@@ -4,7 +4,6 @@ import { motion } from "motion/react";
 import { ArrowLeft, ArrowRight, TrendingUp } from "lucide-react";
 import { caseStudies } from "@/app/data/caseStudies";
 import { LINKS } from "@/app/data/site";
-import WhatsAppButton from "@/app/components/WhatsAppButton";
 import { usePageMeta } from "@/app/hooks/usePageMeta";
 
 const platforms = ["All", "Meta Ads", "Google Ads"];
@@ -15,7 +14,7 @@ export default function CaseStudies() {
   usePageMeta({
     title: "Case Studies | Saad Hasan - Performance Marketing Results",
     description: "Real performance marketing case studies showing proven ROI. See how data-driven Meta Ads, Google Ads, and Klaviyo strategies delivered 9x+ ROAS and $15M+ in client revenue.",
-    canonical: "https://saadhasan.me/case-studies",
+    canonical: "https://www.maliksaadhasan.com/case-studies",
   });
 
   useEffect(() => {
@@ -186,7 +185,6 @@ export default function CaseStudies() {
           </motion.div>
         </div>
       </main>
-      <WhatsAppButton />
     </div>
   );
 }
