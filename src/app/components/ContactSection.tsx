@@ -109,6 +109,11 @@ export default function ContactSection() {
     try {
       await submitLead(formData, "contact_section");
 
+      // Success only: submitLead throws on validation failure, a network
+      // error, or a FormSubmit rejection, so this line is unreachable unless
+      // the enquiry was genuinely accepted.
+      pushEvent("contact_form_success");
+
       const budget = formData.budget || "not_specified";
       const hasPhone = Boolean(formData.phone);
 
