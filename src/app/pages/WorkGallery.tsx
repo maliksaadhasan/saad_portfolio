@@ -6,7 +6,7 @@ import { galleryEntries, GalleryFolder, GalleryItem, GalleryEntry } from "@/app/
 import { LINKS } from "@/app/data/site";
 import { usePageMeta } from "@/app/hooks/usePageMeta";
 
-const filters = ["All", "Meta Ads", "Google Ads"] as const;
+const filters = ["All", "Meta Ads", "Google Ads", "TikTok Ads"] as const;
 
 export default function WorkGallery() {
   const [selected, setSelected] = useState<(typeof filters)[number]>("All");

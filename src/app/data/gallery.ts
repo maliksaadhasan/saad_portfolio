@@ -20,11 +20,12 @@ import pipedecor2025 from "@/assets/gallery/pipedecor-2025.png";
 import pipedecor2025Full from "@/assets/gallery/pipedecor-2025-full.png";
 import pipedecorFeb2026 from "@/assets/gallery/pipedecor-feb2026.png";
 import metaResults1 from "@/assets/gallery/meta-results-1.png";
-import metaResults2 from "@/assets/gallery/meta-results-2.jpg";
-import metaResults3 from "@/assets/gallery/meta-results-3.jpg";
-import metaResults4 from "@/assets/gallery/meta-results-4.jpg";
-import metaResults5 from "@/assets/gallery/meta-results-5.jpg";
-import metaResults6 from "@/assets/gallery/meta-results-6.jpg";
+// Five screenshots that previously sat here were not Meta Ads results.
+// meta-results-4 was a Google Ads overview and meta-results-5 was TikTok Ads;
+// both are re-imported below under their real platform. meta-results-6 was the
+// same screenshot as pipedecor-feb2026. meta-results-2 and -3 were Shopify
+// store analytics (all channels, not ad-attributed), so they are no longer
+// shown; the files remain in the repo if they are wanted elsewhere.
 
 // Google Ads screenshots
 import googleToysJan2026 from "@/assets/gallery/google-toys-jan2026.png";
@@ -39,12 +40,16 @@ import googleRehab from "@/assets/gallery/google-rehab.png";
 import googleLeadgen1 from "@/assets/gallery/google-leadgen-1.png";
 import googleLeadgen2 from "@/assets/gallery/google-leadgen-2.png";
 import googleWeekly from "@/assets/gallery/google-weekly.png";
+import googleAllTime from "@/assets/gallery/google-all-time.jpg";
+
+// TikTok Ads screenshots
+import tiktokGmvMax from "@/assets/gallery/tiktok-gmv-max.jpg";
 
 export interface GalleryItem {
   id: string;
   src: string;
   caption: string;
-  platform: "Meta Ads" | "Google Ads";
+  platform: "Meta Ads" | "Google Ads" | "TikTok Ads";
 }
 
 export interface GalleryFolder {
@@ -53,7 +58,7 @@ export interface GalleryFolder {
   title: string;
   subtitle: string;
   roas: string;
-  platform: "Meta Ads" | "Google Ads";
+  platform: "Meta Ads" | "Google Ads" | "TikTok Ads";
   coverImage: string;
   items: GalleryItem[];
 }
@@ -99,12 +104,7 @@ export const galleryEntries: GalleryEntry[] = [
   { id: "pd-feb26", src: pipedecorFeb2026, caption: "Industrial Furniture Brand: February 2026 (4.78x average ROAS)", platform: "Meta Ads" },
 
   // Meta Ads Campaign Screenshots
-  { id: "meta-1", src: metaResults1, caption: "Meta Ads: Campaign Results Overview", platform: "Meta Ads" },
-  { id: "meta-2", src: metaResults2, caption: "Meta Ads: Sales Campaign Performance", platform: "Meta Ads" },
-  { id: "meta-3", src: metaResults3, caption: "Meta Ads: Retargeting & Catalog Performance", platform: "Meta Ads" },
-  { id: "meta-4", src: metaResults4, caption: "Meta Ads: Prospecting Ad Set Breakdown", platform: "Meta Ads" },
-  { id: "meta-5", src: metaResults5, caption: "Meta Ads: Scaling Campaign Dashboard", platform: "Meta Ads" },
-  { id: "meta-6", src: metaResults6, caption: "Meta Ads: Conversion Attribution Metrics", platform: "Meta Ads" },
+  { id: "meta-1", src: metaResults1, caption: "Meta Ads: Messaging Campaign Delivery & Cost per Conversation", platform: "Meta Ads" },
 
   // Google Ads Screenshots
   { id: "g-toys-jan", src: googleToysJan2026, caption: "Toys & Educational Products Store: January 2026 (544% ROAS)", platform: "Google Ads" },
@@ -118,5 +118,9 @@ export const galleryEntries: GalleryEntry[] = [
   { id: "g-rehab", src: googleRehab, caption: "Rehab & Health: Patient Lead Generation", platform: "Google Ads" },
   { id: "g-leadgen-1", src: googleLeadgen1, caption: "Lead Generation: Search Campaign Metrics", platform: "Google Ads" },
   { id: "g-leadgen-2", src: googleLeadgen2, caption: "Lead Generation: High-Intent Keyword Performance", platform: "Google Ads" },
-  { id: "g-weekly", src: googleWeekly, caption: "Weekly Performance Snapshot Dashboard", platform: "Google Ads" },
+  { id: "g-weekly", src: googleWeekly, caption: "Google Ads: Weekly Snapshot (3,064% ROAS, 5.50% conversion rate)", platform: "Google Ads" },
+  { id: "g-all-time", src: googleAllTime, caption: "E-commerce Account: All-Time Google Ads Performance ($1.11M spend, 54.3K conversions, 389% ROAS)", platform: "Google Ads" },
+
+  // TikTok Ads Screenshots
+  { id: "tt-gmv-max", src: tiktokGmvMax, caption: "TikTok Ads GMV Max: November 2025 ($65.9K gross revenue from $20.6K spend, 3.20 ROI, 659 orders)", platform: "TikTok Ads" },
 ];
