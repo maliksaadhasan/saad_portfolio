@@ -1,13 +1,15 @@
 import { useParams, Link } from "react-router";
 import { useEffect, useState, useMemo } from "react";
 import { motion, useScroll, useSpring } from "motion/react";
-import { ArrowLeft, ArrowRight, Clock, Calendar, Bookmark, Sparkles, CheckCircle2, ChevronRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, Clock, Calendar, Bookmark, Sparkles, CheckCircle2, ChevronRight, Mail, MessageCircle, Linkedin } from "lucide-react";
 import { blogPosts } from "@/app/data/blogPosts";
 import { LINKS } from "@/app/data/site";
 import { usePageMeta } from "@/app/hooks/usePageMeta";
+import { useLeadForm } from "@/app/components/LeadFormProvider";
 
 export default function BlogPost() {
   const { slug } = useParams();
+  const { open: openLeadForm } = useLeadForm();
   const post = blogPosts.find((p) => p.slug === slug);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -20,20 +22,22 @@ export default function BlogPost() {
 
   const jsonLd = useMemo(() => {
     if (!post) return undefined;
-    return {
-      "@context": "https://schema.org",
+
+    const article = {
       "@type": "BlogPosting",
+      "@id": `https://www.maliksaadhasan.com/blog/${slug}#article`,
       "headline": post.title,
       "description": post.excerpt,
       "datePublished": post.date,
       "author": {
         "@type": "Person",
-        "name": "Saad Hasan",
-        "url": "https://www.maliksaadhasan.com"
+        "name": "Malik Saad Hasan",
+        "jobTitle": "Performance Marketer",
+        "url": "https://www.maliksaadhasan.com/about"
       },
       "publisher": {
         "@type": "Person",
-        "name": "Saad Hasan"
+        "name": "Malik Saad Hasan"
       },
       "mainEntityOfPage": {
         "@type": "WebPage",
@@ -42,6 +46,41 @@ export default function BlogPost() {
       "articleSection": post.category,
       "wordCount": post.content.join(" ").split(/\s+/).length
     };
+
+    // Answer-engine markup: every "?? Question | Answer" block in the post
+    // becomes a FAQPage entry, which is what gets pulled into featured
+    // snippets, voice results and AI answer boxes.
+    const faqs = post.content
+      .filter((b) => b.startsWith("?? "))
+      .map((b) => {
+        const idx = b.indexOf(" | ");
+        if (idx === -1) return null;
+        return {
+          "@type": "Question",
+          "name": b.slice(3, idx).trim(),
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": b.slice(idx + 3).trim()
+          }
+        };
+      })
+      .filter(Boolean);
+
+    const breadcrumb = {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.maliksaadhasan.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.maliksaadhasan.com/blog" },
+        { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://www.maliksaadhasan.com/blog/${slug}` }
+      ]
+    };
+
+    const graph: Record<string, unknown>[] = [article, breadcrumb];
+    if (faqs.length > 0) {
+      graph.push({ "@type": "FAQPage", "mainEntity": faqs });
+    }
+
+    return { "@context": "https://schema.org", "@graph": graph };
   }, [post, slug]);
 
   usePageMeta({
@@ -235,6 +274,41 @@ export default function BlogPost() {
                 );
               }
 
+              // Inline diagram. The SVG is authored in this repo, never user
+              // input, so injecting it as markup is safe here.
+              if (block.startsWith("<svg")) {
+                return (
+                  <figure
+                    key={i}
+                    className="my-10 overflow-x-auto rounded-2xl border border-white/10 bg-white/[0.03] p-4 sm:p-6"
+                  >
+                    <div
+                      className="min-w-[520px] sm:min-w-0"
+                      dangerouslySetInnerHTML={{ __html: block }}
+                    />
+                  </figure>
+                );
+              }
+
+              // FAQ entry: "?? Question | Answer". Also emitted as FAQPage
+              // structured data above, for answer engines.
+              if (block.startsWith("?? ")) {
+                const idx = block.indexOf(" | ");
+                const question = idx === -1 ? block.slice(3) : block.slice(3, idx);
+                const answer = idx === -1 ? "" : block.slice(idx + 3);
+                return (
+                  <div
+                    key={i}
+                    className="my-4 p-5 sm:p-6 bg-white/[0.04] border border-white/10 rounded-2xl"
+                  >
+                    <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">
+                      {question}
+                    </h3>
+                    <p className="text-white/75 leading-relaxed">{answer}</p>
+                  </div>
+                );
+              }
+
               // Standard Paragraph
               return (
                 <p key={i} className="text-white/80 leading-relaxed text-base sm:text-lg">
@@ -261,17 +335,64 @@ export default function BlogPost() {
               Want these frameworks applied to your ad account?
             </h2>
             <p className="text-white/70 max-w-xl mx-auto mb-8 text-sm sm:text-base leading-relaxed">
-              Book a complimentary 1:1 strategy call. I will audit your pixel tracking, inspect campaign structures, and perform a competitor analysis.
+              I am Malik Saad Hasan, a performance marketer managing Meta Ads,
+              Google Ads and Klaviyo for e-commerce and lead-generation brands.
+              Send me your account and I will tell you where the money is
+              leaking, before you pay me anything.
             </p>
-            <a
-              href={LINKS.calendar}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 px-8 py-4 sm:px-10 sm:py-5 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 rounded-full text-white font-medium hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 group text-base sm:text-lg"
-            >
-              <span>Book Your 1:1 Strategy Call</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </a>
+
+            <div className="flex flex-col sm:flex-row gap-3 justify-center mb-10">
+              <button
+                type="button"
+                onClick={() => openLeadForm("blog_post_footer")}
+                data-track="open_lead_form_blog"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 rounded-full text-white font-medium hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 group text-base"
+              >
+                <span>Get a free account audit</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+              <a
+                href={LINKS.calendar}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-track="blog_book_call"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white/5 border border-white/15 rounded-full text-white font-medium hover:bg-white/10 transition-all duration-300 text-base"
+              >
+                <Calendar className="w-5 h-5" />
+                <span>Book a 1:1 strategy call</span>
+              </a>
+            </div>
+
+            <div className="pt-8 border-t border-white/10 grid gap-3 sm:grid-cols-3 text-sm">
+              <a
+                href={`mailto:${LINKS.email}`}
+                data-track="blog_email"
+                className="flex items-center justify-center gap-2 text-white/70 hover:text-white transition-colors"
+              >
+                <Mail className="w-4 h-4 text-purple-300 flex-shrink-0" />
+                <span className="break-all">{LINKS.email}</span>
+              </a>
+              <a
+                href={LINKS.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-track="blog_whatsapp"
+                className="flex items-center justify-center gap-2 text-white/70 hover:text-white transition-colors"
+              >
+                <MessageCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
+                <span>{LINKS.whatsappNumber}</span>
+              </a>
+              <a
+                href={LINKS.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-track="blog_linkedin"
+                className="flex items-center justify-center gap-2 text-white/70 hover:text-white transition-colors"
+              >
+                <Linkedin className="w-4 h-4 text-blue-400 flex-shrink-0" />
+                <span>Connect on LinkedIn</span>
+              </a>
+            </div>
           </motion.div>
 
           {/* Related Articles */}
