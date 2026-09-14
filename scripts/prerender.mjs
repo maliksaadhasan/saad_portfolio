@@ -73,9 +73,20 @@ function readPageMeta(file) {
   const path = join(ROOT, "src/app/pages", file);
   if (!existsSync(path)) return null;
   const src = readFileSync(path, "utf8").replace(/\r\n/g, "\n");
-  const title = (src.match(/usePageMeta\(\{[\s\S]{0,400}?title:\s*"([^"]+)"/) || [])[1];
-  const description = (src.match(/usePageMeta\(\{[\s\S]{0,800}?description:\s*"([^"]+)"/) || [])[1];
-  const canonical = (src.match(/usePageMeta\(\{[\s\S]{0,1200}?canonical:\s*"([^"]+)"/) || [])[1];
+
+  // Pages declare metadata one of two ways: a usePageMeta call, or props on
+  // the shared SectionPage wrapper. Both are read so neither pattern is
+  // silently skipped.
+  let title = (src.match(/usePageMeta\(\{[\s\S]{0,400}?title:\s*"([^"]+)"/) || [])[1];
+  let description = (src.match(/usePageMeta\(\{[\s\S]{0,800}?description:\s*"([^"]+)"/) || [])[1];
+  let canonical = (src.match(/usePageMeta\(\{[\s\S]{0,1200}?canonical:\s*"([^"]+)"/) || [])[1];
+
+  if (!title) {
+    title = (src.match(/<SectionPage[\s\S]{0,600}?\stitle="([^"]+)"/) || [])[1];
+    description = (src.match(/<SectionPage[\s\S]{0,900}?\sdescription="([^"]+)"/) || [])[1];
+    canonical = (src.match(/<SectionPage[\s\S]{0,1200}?\scanonical="([^"]+)"/) || [])[1];
+  }
+
   if (!title) return null;
   return { title, description: description || "", canonical };
 }
@@ -185,8 +196,13 @@ function main() {
   for (const p of STATIC_PAGES) {
     const meta = readPageMeta(p.file);
     if (!meta) {
-      console.warn(`[prerender] no usePageMeta found in ${p.file}, skipping ${p.route}`);
-      continue;
+      // Failing loudly is deliberate. A skipped page silently falls back to
+      // the SPA shell, which serves the homepage title and a canonical
+      // pointing at "/" - exactly the bug this script exists to fix.
+      throw new Error(
+        `[prerender] could not read metadata from ${p.file}. ` +
+          `Expected a usePageMeta call or SectionPage title/description/canonical props.`
+      );
     }
     pages.push({
       route: p.route,
