@@ -47,7 +47,12 @@ export const blogPosts: BlogPost[] = [
       "- Sustaining retargeting campaigns with dynamic product ads (DPA) to capture abandoned cart intent.",
       "## The Final Results & Key Takeaways",
       "Over a 12-month period, the account delivered $431,290 in tracked revenue from $47,700 in ad spend, completing 5,357 verified orders at a blended 9.04x ROAS. The Lactation Cookies campaign generated an 8.84x ROAS on $39K spend, while the Starter Kit campaign achieved 9.91x.",
-      "> Summary Checklist: Fix tracking setup first, consolidate ad account budgets, test hooks continuously, and scale spend with patience.",
+      "> Summary Checklist: Fix tracking setup first, consolidate ad account budgets, test hooks continuously, and scale spend with patience.",      "## Questions About Scaling on Meta",
+      "?? What ROAS is realistic for an e-commerce brand on Meta Ads? | This account sustained 9.04x across a full year, but that is unusually high and not a benchmark to plan against. What matters is whether your return clears your break-even, which is set by gross margin rather than by any published figure.",
+      "?? Do I need the Conversions API as well as the Meta Pixel? | Yes. Browser pixel signals get blocked by privacy filters, iOS restrictions and ad blockers, so a browser-only setup loses a meaningful share of purchases. Run both with event deduplication so the same sale isn't counted twice.",
+      "?? Should I pause traffic and engagement campaigns? | Usually, if purchases are the goal. Those objectives buy clicks without purchase intent and compete against your sales campaigns in the same auction, splitting the conversion volume the algorithm needs to learn.",
+      "?? How many creative angles should I test at once? | Group by marketing angle rather than visual variation. Pain-point, benefit-led, social proof and demonstration angles reach four different buyers. Four crops of one photograph reach the same buyer four times.",
+
     ],
   },
   {
@@ -83,7 +88,12 @@ export const blogPosts: BlogPost[] = [
       "1. Meta Test Events Tool: Inspect real-time payload delivery for both browser and server channels.",
       "2. Meta Pixel Helper Chrome Extension: Verify event firing triggers and parameter payloads on client pages.",
       "3. Server Log Inspection: Verify server response 200 OK codes from Meta Graph API endpoints.",
-      "Accurate attribution feeds clean signals directly to machine learning delivery algorithms, leading to lower customer acquisition costs and sustainable scaling.",
+      "Accurate attribution feeds clean signals directly to machine learning delivery algorithms, leading to lower customer acquisition costs and sustainable scaling.",      "## Common Questions on Tracking Setup",
+      "?? Why does my pixel report fewer purchases than my store? | Browser tracking misses events to privacy filters, Safari restrictions and ad blockers. Server-side Conversions API tracking closes that gap by sending events from your server rather than the visitor's browser.",
+      "?? What is event deduplication and why does it matter? | Running the Pixel and Conversions API together means the same purchase can be reported twice. Matching event IDs across both lets the platform recognise them as one event, so reported conversions stay accurate.",
+      "?? Which events should a lead-generation account track? | Fire Lead and Schedule on validated form submissions or confirmed bookings only, never on page loads. Counting a page view as a lead trains delivery toward people who browse rather than people who enquire.",
+      "?? Does fixing tracking actually lower cost per acquisition? | Often. Cleaner conversion signals let the delivery algorithm identify buyers more accurately, so part of the improvement is genuine optimisation rather than just better reporting.",
+
     ],
   },
   {
@@ -116,7 +126,12 @@ export const blogPosts: BlogPost[] = [
       "- Maintain clean payment history: Use dedicated corporate payment methods to prevent billing holds.",
       "- Promptly address ad rejections: Never re-submit rejected creatives without modifying copy or landing page elements.",
       "## Reduced Auction Competition Payoff",
-      "Because advertising regulations deter inexperienced sellers, compliant advertisers enjoy lower auction CPM competition. Adhering to strict compliance protocols allows wellness brands to scale predictably while competitors struggle with policy flags.",
+      "Because advertising regulations deter inexperienced sellers, compliant advertisers enjoy lower auction CPM competition. Adhering to strict compliance protocols allows wellness brands to scale predictably while competitors struggle with policy flags.",      "## Questions on Advertising Restricted Products",
+      "?? Can you run CBD ads on Meta? | Ingestible CBD is heavily restricted, but compliant advertising is possible when the ad avoids prohibited claims and the landing page meets policy requirements too. Most of the compliance work sits in the destination, not the ad.",
+      "?? Why do restricted categories sometimes have cheaper CPMs? | Policy risk deters less experienced advertisers, which thins auction competition. An advertiser who can operate compliantly at scale gets a structural cost advantage.",
+      "?? What gets a CBD or wellness ad rejected most often? | Explicit health or medical claims, before-and-after imagery, and wording that implies treating a condition. Rejection almost always traces back to a claim rather than the product itself.",
+      "?? How do you recover an account after repeated rejections? | Stop resubmitting variations of the rejected asset, fix the underlying claim on both the ad and the landing page, then rebuild delivery gradually instead of relaunching at full budget.",
+
     ],
   },
   {
@@ -150,7 +165,12 @@ export const blogPosts: BlogPost[] = [
       "Consistently blocking irrelevant search queries prevents wasted budget:",
       "- Add negative phrase lists for terms like 'free', 'jobs', 'diy', 'salary', 'wholesale', and 'training'.",
       "- Review weekly Search Terms reports to discover and eliminate non-converting queries early.",
-      "Properly structured Google Ads campaigns establish a predictable customer acquisition funnel for local service companies.",
+      "Properly structured Google Ads campaigns establish a predictable customer acquisition funnel for local service companies.",      "## Questions From Local Service Businesses",
+      "?? How much should a local service business spend on Google Ads? | Enough to sustain real click volume on commercial terms inside your service area. A small budget spread across every service and a wide radius produces no usable data; the same budget concentrated usually produces leads.",
+      "?? Should local campaigns use broad match keywords? | Rarely without a mature negative list. Service categories carry a large and predictable research vocabulary, so broad match without exclusions mostly buys clicks from people who will never book.",
+      "?? What conversion action should a service business track? | Validated form submissions and tracked phone calls. Not contact page views, which produce a number with no relationship to how many people actually got in touch.",
+      "?? How wide should the geographic radius be? | The realistic catchment for a first appointment, which is usually tighter than owners expect. People will travel for an established relationship far more readily than for a first visit.",
+
     ],
   },
   {
@@ -181,7 +201,12 @@ export const blogPosts: BlogPost[] = [
       "- Sync active email customer segments to Meta as Custom Audiences for retargeting exclusions.",
       "- Suppress recent buyers from prospecting ad campaigns to prevent redundant ad spend.",
       "- Build high-LTV Lookalike Audiences derived from top 20% lifetime customer segments.",
-      "Implementing these automated email flows typically adds 20% to 30% in additional store revenue while protecting profit margins.",
+      "Implementing these automated email flows typically adds 20% to 30% in additional store revenue while protecting profit margins.",      "## Questions About Email Flows",
+      "?? How much revenue should email contribute to an e-commerce store? | Well-built automated flows commonly add 20 to 30 percent of store revenue. It varies with repeat purchase rate and category, but flows beat one-off campaigns because they reach the customer at the moment that matters.",
+      "?? Which Klaviyo flow should I build first? | Abandoned checkout. It reaches people who already chose a product and stopped at the last step, which is the shortest distance between existing intent and recovered revenue.",
+      "?? Does email marketing reduce paid acquisition costs? | Indirectly. Revenue from owned channels lifts your blended return, which means you can afford a higher acquisition cost on paid and still stay profitable.",
+      "?? How often should I email my list? | Often enough to stay familiar, rarely enough to stay welcome. Watch unsubscribe rate and revenue per recipient together. If revenue holds while unsubscribes climb, you're borrowing from future revenue.",
+
     ],
   },
   {
@@ -215,7 +240,12 @@ export const blogPosts: BlogPost[] = [
       "1. Graduate winning assets into primary scaling campaigns with higher budgets.",
       "2. Deactivate underperforming creative variations without delay.",
       "3. Iterate on winning hooks by creating fresh visual adaptations and script expansions.",
-      "Executing a systematic creative testing pipeline creates a continuous flow of winning ad assets, enabling accounts to scale month after month.",
+      "Executing a systematic creative testing pipeline creates a continuous flow of winning ad assets, enabling accounts to scale month after month.",      "## Questions on Creative Testing",
+      "?? How many ads should I test at once? | Few enough that each gathers meaningful data on your budget, which is usually fewer than advertisers want. Splitting a small budget across many variations produces results indistinguishable from noise.",
+      "?? How long should a creative test run? | Until it has accumulated enough conversions to be representative, not until a set number of days has passed. Judging on three days of data is the most common way a winning ad gets killed early.",
+      "?? What should I change between creative variations? | One meaningful variable, and usually the angle rather than the execution. Testing four crops of an image tells you about framing. Testing four reasons to buy tells you about your market.",
+      "?? When should I retire a winning creative? | When frequency climbs and click-through rate falls together over a sustained period. One bad week is ordinary variance, not fatigue.",
+
     ],
   },
   {
@@ -266,7 +296,12 @@ export const blogPosts: BlogPost[] = [
       "- Sunday: apply the second step only if the first held. If CPA moved against you, hold and switch to horizontal next week.",
       "## The mistake underneath all of this",
       "Scaling is treated as an event, something you do once the account is working. It isn't. It's a weekly rhythm of adding capacity and then adding spend, in that order, with frequency as the signal that tells you which one you need.",
-      "> Summary: diagnose with frequency and CPA trend, scale horizontally to create room, scale vertically in 15 to 20 percent steps, and never do both aggressively in the same week.",
+      "> Summary: diagnose with frequency and CPA trend, scale horizontally to create room, scale vertically in 15 to 20 percent steps, and never do both aggressively in the same week.",      "## Questions I Get About Scaling Method",
+      "?? What is the difference between vertical and horizontal scaling? | Vertical raises budget on what already exists. Horizontal adds new campaigns, audiences, placements or markets. Vertical extracts more from what works; horizontal creates new room to work in.",
+      "?? Which should I do first? | Horizontal, if frequency is climbing, because more budget into a saturated audience raises cost without raising results. Vertical first only makes sense when there is still headroom where you already are.",
+      "?? Why does raising the budget sometimes cut ROAS immediately? | Two reasons at once: a large single-step increase can reset the learning phase, and the extra budget reaches further into a less responsive audience. Smaller increments avoid both.",
+      "?? Can I scale vertically and horizontally at the same time? | You can, but then you can't attribute the outcome to either. Changing one variable at a time is slower and leaves you with knowledge you can reuse.",
+
     ],
   },
   {
@@ -323,7 +358,12 @@ export const blogPosts: BlogPost[] = [
       "That last one matters more than advertisers expect. If click-through rate is healthy and landing page conversion rate is falling, no amount of campaign work fixes it. The problem is on the site.",
       "## The part nobody talks about",
       "Good campaign management is unglamorous and largely repetitive. It's looking at the same metrics on the same day each week, resisting the urge to intervene, and making a small number of well-reasoned changes rather than many reactive ones. Accounts that compound do so because someone ran the same disciplined loop for fifty-two weeks, not because of a clever tactic in week three.",
-      "> Summary: fixed weekly rhythm, tracking verified before diagnosis, 10 to 20 percent of spend permanently in testing, consolidated structure, and changes judged on three days of data rather than one.",
+      "> Summary: fixed weekly rhythm, tracking verified before diagnosis, 10 to 20 percent of spend permanently in testing, consolidated structure, and changes judged on three days of data rather than one.",      "## Questions on Managing Accounts",
+      "?? How often should I check my ad accounts? | Daily for anything genuinely broken, such as rejections or tracking failures. Weekly for performance decisions, because daily optimisation calls get made on data too thin to support them.",
+      "?? How much budget should stay in testing? | Around 10 to 20 percent, permanently. An account with no testing budget is living on creative that is already decaying, and has nothing ready when it stops working.",
+      "?? How long should I wait before judging a change? | Three days minimum, longer on accounts with low conversion volume. A single day of data tells you more about the day than about the change you made.",
+      "?? What should a weekly account review cover? | Confirm tracking is still firing, compare against the previous week rather than the previous day, make a small number of decisions, and write down what you changed so next week has a baseline.",
+
     ],
   },
   {
