@@ -6,6 +6,8 @@ import { blogPosts } from "@/app/data/blogPosts";
 import { LINKS } from "@/app/data/site";
 import { usePageMeta } from "@/app/hooks/usePageMeta";
 import { useLeadForm } from "@/app/components/LeadFormProvider";
+import BlogCarousel from "@/app/components/BlogCarousel";
+import type { CarouselSlide } from "@/app/components/BlogCarousel";
 
 export default function BlogPost() {
   const { slug } = useParams();
@@ -122,6 +124,28 @@ export default function BlogPost() {
     .filter((b) => b.startsWith("## "))
     .map((b) => b.replace("## ", ""));
 
+  // Consecutive ">> Title :: Body" blocks collapse into a single carousel, so
+  // a run of related points reads as a deck rather than another bullet list.
+  type Rendered =
+    | { kind: "carousel"; slides: CarouselSlide[] }
+    | { kind: "block"; value: string };
+
+  const rendered: Rendered[] = [];
+  for (const b of post.content) {
+    if (b.startsWith(">> ")) {
+      const sep = b.indexOf(" :: ");
+      const slide =
+        sep === -1
+          ? { title: b.slice(3).trim(), body: "" }
+          : { title: b.slice(3, sep).trim(), body: b.slice(sep + 4).trim() };
+      const last = rendered[rendered.length - 1];
+      if (last && last.kind === "carousel") last.slides.push(slide);
+      else rendered.push({ kind: "carousel", slides: [slide] });
+    } else {
+      rendered.push({ kind: "block", value: b });
+    }
+  }
+
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Scroll Progress Bar */}
@@ -212,7 +236,12 @@ export default function BlogPost() {
             transition={{ duration: 0.8, delay: 0.15 }}
             className="space-y-6 sm:space-y-8 text-base sm:text-lg leading-relaxed text-white/80"
           >
-            {post.content.map((block, i) => {
+            {rendered.map((item, i) => {
+              if (item.kind === "carousel") {
+                return <BlogCarousel key={i} slides={item.slides} />;
+              }
+              const block = item.value;
+
               // Subheading
               if (block.startsWith("## ")) {
                 const headingText = block.replace("## ", "");
