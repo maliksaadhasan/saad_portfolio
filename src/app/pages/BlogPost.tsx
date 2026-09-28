@@ -303,6 +303,32 @@ export default function BlogPost() {
                 );
               }
 
+              // Screenshot: "!! /path/image.png | alt text | caption"
+              // Served from /public, so no import is needed and the data file
+              // stays plain strings.
+              if (block.startsWith("!! ")) {
+                const [src, alt, caption] = block
+                  .slice(3)
+                  .split(" | ")
+                  .map((s) => s.trim());
+                return (
+                  <figure key={i} className="my-10">
+                    <img
+                      src={src}
+                      alt={alt || ""}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full rounded-2xl border border-white/10 bg-white/[0.03]"
+                    />
+                    {caption && (
+                      <figcaption className="mt-3 text-sm text-white/50 leading-relaxed">
+                        {caption}
+                      </figcaption>
+                    )}
+                  </figure>
+                );
+              }
+
               // Inline diagram. The SVG is authored in this repo, never user
               // input, so injecting it as markup is safe here.
               if (block.startsWith("<svg")) {
