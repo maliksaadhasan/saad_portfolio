@@ -36,7 +36,6 @@ export default defineConfig({
       output: {
         manualChunks: {
           'vendor-react': ['react', 'react-dom', 'react-router'],
-          'vendor-three': ['three', '@react-three/fiber', '@react-three/drei'],
           'vendor-motion': ['motion'],
         },
       },

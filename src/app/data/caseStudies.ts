@@ -1,11 +1,11 @@
-import milkforbubs2025 from "@/assets/gallery/milkforbubs-2025.png";
-import pipedecor2025 from "@/assets/gallery/pipedecor-2025.png";
-import googleToys from "@/assets/gallery/google-toys-jan2026.png";
-import googleSinks from "@/assets/gallery/google-sinks.png";
-import googleAesthetic from "@/assets/gallery/google-aesthetic.png";
-import googleAntiques from "@/assets/gallery/google-antiques.png";
-import googleTile from "@/assets/gallery/google-tile.png";
-import googleRehab from "@/assets/gallery/google-rehab.png";
+import milkforbubs2025 from "@/assets/gallery/milkforbubs-2025.jpg";
+import pipedecor2025 from "@/assets/gallery/pipedecor-2025.jpg";
+import googleToys from "@/assets/gallery/google-toys-jan2026.jpg";
+import googleSinks from "@/assets/gallery/google-sinks.jpg";
+import googleAesthetic from "@/assets/gallery/google-aesthetic.jpg";
+import googleAntiques from "@/assets/gallery/google-antiques.jpg";
+import googleTile from "@/assets/gallery/google-tile.jpg";
+import googleRehab from "@/assets/gallery/google-rehab.jpg";
 
 export interface CaseStudy {
   id: string;

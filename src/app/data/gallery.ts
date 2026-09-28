@@ -1,25 +1,25 @@
 // Meta Ads screenshots
-import milkforbubs2025 from "@/assets/gallery/milkforbubs-2025.png";
-import milkforbubsMax from "@/assets/gallery/milkforbubs-max.png";
-import mfbJan2025 from "@/assets/gallery/mfb-jan2025.png";
-import mfbFeb2025 from "@/assets/gallery/mfb-feb2025.png";
-import mfbMar2025 from "@/assets/gallery/mfb-mar2025.png";
-import mfbApr2025 from "@/assets/gallery/mfb-apr2025.png";
-import mfbMay2025 from "@/assets/gallery/mfb-may2025.png";
-import mfbJun2025 from "@/assets/gallery/mfb-jun2025.png";
-import mfbJul2025 from "@/assets/gallery/mfb-jul2025.png";
-import mfbAug2025 from "@/assets/gallery/mfb-aug2025.png";
-import mfbSep2025 from "@/assets/gallery/mfb-sep2025.png";
-import mfbOct2025 from "@/assets/gallery/mfb-oct2025.png";
-import mfbNov2025 from "@/assets/gallery/mfb-nov2025.png";
-import mfbDec2025 from "@/assets/gallery/mfb-dec2025.png";
-import mfbJan2026 from "@/assets/gallery/mfb-jan2026.png";
-import mfbFeb2026 from "@/assets/gallery/mfb-feb2026.png";
-import mfbMar2026 from "@/assets/gallery/mfb-mar2026.png";
-import pipedecor2025 from "@/assets/gallery/pipedecor-2025.png";
-import pipedecor2025Full from "@/assets/gallery/pipedecor-2025-full.png";
-import pipedecorFeb2026 from "@/assets/gallery/pipedecor-feb2026.png";
-import metaResults1 from "@/assets/gallery/meta-results-1.png";
+import milkforbubs2025 from "@/assets/gallery/milkforbubs-2025.jpg";
+import milkforbubsMax from "@/assets/gallery/milkforbubs-max.jpg";
+import mfbJan2025 from "@/assets/gallery/mfb-jan2025.jpg";
+import mfbFeb2025 from "@/assets/gallery/mfb-feb2025.jpg";
+import mfbMar2025 from "@/assets/gallery/mfb-mar2025.jpg";
+import mfbApr2025 from "@/assets/gallery/mfb-apr2025.jpg";
+import mfbMay2025 from "@/assets/gallery/mfb-may2025.jpg";
+import mfbJun2025 from "@/assets/gallery/mfb-jun2025.jpg";
+import mfbJul2025 from "@/assets/gallery/mfb-jul2025.jpg";
+import mfbAug2025 from "@/assets/gallery/mfb-aug2025.jpg";
+import mfbSep2025 from "@/assets/gallery/mfb-sep2025.jpg";
+import mfbOct2025 from "@/assets/gallery/mfb-oct2025.jpg";
+import mfbNov2025 from "@/assets/gallery/mfb-nov2025.jpg";
+import mfbDec2025 from "@/assets/gallery/mfb-dec2025.jpg";
+import mfbJan2026 from "@/assets/gallery/mfb-jan2026.jpg";
+import mfbFeb2026 from "@/assets/gallery/mfb-feb2026.jpg";
+import mfbMar2026 from "@/assets/gallery/mfb-mar2026.jpg";
+import pipedecor2025 from "@/assets/gallery/pipedecor-2025.jpg";
+import pipedecor2025Full from "@/assets/gallery/pipedecor-2025-full.jpg";
+import pipedecorFeb2026 from "@/assets/gallery/pipedecor-feb2026.jpg";
+import metaResults1 from "@/assets/gallery/meta-results-1.jpg";
 // Five screenshots that previously sat here were not Meta Ads results.
 // meta-results-4 was a Google Ads overview and meta-results-5 was TikTok Ads;
 // both are re-imported below under their real platform. meta-results-6 was the
@@ -28,18 +28,18 @@ import metaResults1 from "@/assets/gallery/meta-results-1.png";
 // shown; the files remain in the repo if they are wanted elsewhere.
 
 // Google Ads screenshots
-import googleToysJan2026 from "@/assets/gallery/google-toys-jan2026.png";
-import googleToysApril from "@/assets/gallery/google-toys-april.png";
-import googleToysMay from "@/assets/gallery/google-toys-may.png";
-import googleKidsToys from "@/assets/gallery/google-kids-toys.png";
-import googleSinks from "@/assets/gallery/google-sinks.png";
-import googleAesthetic from "@/assets/gallery/google-aesthetic.png";
-import googleAntiques from "@/assets/gallery/google-antiques.png";
-import googleTile from "@/assets/gallery/google-tile.png";
-import googleRehab from "@/assets/gallery/google-rehab.png";
-import googleLeadgen1 from "@/assets/gallery/google-leadgen-1.png";
-import googleLeadgen2 from "@/assets/gallery/google-leadgen-2.png";
-import googleWeekly from "@/assets/gallery/google-weekly.png";
+import googleToysJan2026 from "@/assets/gallery/google-toys-jan2026.jpg";
+import googleToysApril from "@/assets/gallery/google-toys-april.jpg";
+import googleToysMay from "@/assets/gallery/google-toys-may.jpg";
+import googleKidsToys from "@/assets/gallery/google-kids-toys.jpg";
+import googleSinks from "@/assets/gallery/google-sinks.jpg";
+import googleAesthetic from "@/assets/gallery/google-aesthetic.jpg";
+import googleAntiques from "@/assets/gallery/google-antiques.jpg";
+import googleTile from "@/assets/gallery/google-tile.jpg";
+import googleRehab from "@/assets/gallery/google-rehab.jpg";
+import googleLeadgen1 from "@/assets/gallery/google-leadgen-1.jpg";
+import googleLeadgen2 from "@/assets/gallery/google-leadgen-2.jpg";
+import googleWeekly from "@/assets/gallery/google-weekly.jpg";
 import googleAllTime from "@/assets/gallery/google-all-time.jpg";
 
 // TikTok Ads screenshots
